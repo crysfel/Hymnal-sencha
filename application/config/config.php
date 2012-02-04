@@ -14,7 +14,19 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://localhost/projects/hymnal/';
+switch (ENVIRONMENT){
+	case 'development':
+		$config['base_url']	= 'http://localhost/projects/hymnal/';
+	break;
+
+	case 'testing':
+	case 'production':
+		$config['base_url']	= 'http://demos.bleext.com/hymnal/';
+	break;
+
+	default:
+		exit('The application environment is not set correctly.');
+}
 
 /*
 |--------------------------------------------------------------------------

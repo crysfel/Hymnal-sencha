@@ -1,0 +1,59 @@
+{
+    "projectName": "Project Name",
+    "licenseText": "Copyright(c) 2011 Company Name",
+    "builds": [
+        {
+            "name": "All Classes",
+            "target": "all-classes.js",
+            "options": {
+                "debug": true
+            },
+            "files": [
+                {
+                    "path": "js/Hymnal/controller/",
+                    "name": "Home.js"
+                },
+                {
+                    "path": "js/Hymnal/view/",
+                    "name": "Categories.js"
+                },
+                {
+                    "path": "js/Hymnal/model/",
+                    "name": "Hymn.js"
+                },
+                {
+                    "path": "js/Hymnal/view/",
+                    "name": "Home.js"
+                },
+                {
+                    "path": "js/Hymnal/store/",
+                    "name": "Hymns.js"
+                },
+                {
+                    "path": "js/Hymnal/view/",
+                    "name": "HymnsList.js"
+                },
+                {
+                    "path": "js/Hymnal/store/",
+                    "name": "Categories.js"
+                }
+            ]
+        },
+        {
+            "name": "Application - Production",
+            "target": "app-all.js",
+            "compress": true,
+            "files": [
+                {
+                    "path": "",
+                    "name": "all-classes.js"
+                },
+                {
+                    "path": "js/",
+                    "name": "app.js"
+                }
+            ]
+        }
+    ],
+    "resources": []
+}

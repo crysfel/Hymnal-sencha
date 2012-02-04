@@ -41,7 +41,11 @@ Ext.define('Hymnal.view.HymnsList',{
 			items	: [{
 				xtype	: 'searchfield',
 				flex	: 1,
+				height	: 27,
 				placeHolder	: 'Búsque por palabras o número'
+			},{
+				xtype	: 'button',
+				text	: 'Cancelar'
 			}]
 		},{
 			xtype		: 'list',

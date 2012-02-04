@@ -48,10 +48,26 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'root';
-$db['default']['password'] = 'okok';
-$db['default']['database'] = 'hymns';
+switch (ENVIRONMENT){
+	case 'development':
+		$db['default']['hostname'] = 'localhost';
+		$db['default']['username'] = 'root';
+		$db['default']['password'] = 'okok';
+		$db['default']['database'] = 'hymns';
+	break;
+
+	case 'testing':
+	case 'production':
+		$db['default']['hostname'] = '';
+		$db['default']['username'] = '';
+		$db['default']['password'] = '';
+		$db['default']['database'] = '';
+	break;
+
+	default:
+		exit('The application environment is not set correctly.');
+}
+
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;

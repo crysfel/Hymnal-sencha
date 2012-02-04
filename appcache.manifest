@@ -1,0 +1,21 @@
+CACHE MANIFEST
+# 2012-01-24 hymnal-v0.1.3
+
+# Explicitly cached 'master entries'.
+CACHE:
+resources/images/icon.png
+resources/images/launch_h.png
+resources/images/launch_v.png
+js/sencha-touch-2.0.0/sencha-touch-all-debug.js
+js/app.js
+js/Hymnal/controller/Home.js
+js/Hymnal/model/Category.js
+js/Hymnal/model/Hymn.js
+js/Hymnal/store/Categories.js
+js/Hymnal/store/Hymns.js
+js/Hymnal/view/Categories.js
+js/Hymnal/view/Home.js
+js/Hymnal/view/HymnsList.js
+resources/css/hymnal.css
+index.php/hymnal/index
+index.php/hymnal/findAll

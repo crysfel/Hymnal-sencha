@@ -21,7 +21,8 @@ switch (ENVIRONMENT){
 
 	case 'testing':
 	case 'production':
-		$config['base_url']	= 'http://demos.bleext.com/hymnal/';
+	$config['base_url']	= 'http://localhost/projects/hymnal/';
+		//$config['base_url']	= 'http://demos.bleext.com/hymnal/';
 	break;
 
 	default:

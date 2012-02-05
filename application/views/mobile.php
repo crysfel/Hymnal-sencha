@@ -6,7 +6,7 @@
 <?php endif; ?>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Himnario Adventista</title>
+    <title>Himnario</title>
 
     <link rel="stylesheet" href="<?php echo base_url(); ?>resources/css/hymnal.css" type="text/css">
     

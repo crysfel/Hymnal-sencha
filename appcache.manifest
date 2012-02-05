@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# 2012-01-24 hymnal-v0.1.5
+# 2012-01-24 hymnal-v0.1.6
 
 # Explicitly cached 'master entries'.
 CACHE:
@@ -8,4 +8,6 @@ js/sencha-touch-2.0.0/sencha-touch-all.js
 app-all.js
 resources/css/hymnal.css
 index.php/hymnal/index
-index.php/hymnal/findAll
+
+FALLBACK:
+index.php/hymnal/findAll db/hymns.json

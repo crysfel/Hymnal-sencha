@@ -29,7 +29,7 @@ Ext.define('Hymnal.view.HymnsList',{
 				xtype	: 'spacer'
             },{
 				xtype	: 'title',
-				title	: 'Búsqueda'
+				title	: 'Himnario Adventista'
             },{
 				xtype: 'spacer'
             },{

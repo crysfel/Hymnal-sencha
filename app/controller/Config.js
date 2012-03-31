@@ -26,14 +26,20 @@ Ext.define('Hymnal.controller.Config',{
 		var me = this,
 			config = Ext.decode(localStorage.getItem('hymnal-config'));
 
-		setTimeout(function(){
-			me.getConfigForm().setValues(config);
-		},200);
+		if(me.getConfigForm()){
+			setTimeout(function(){
+				me.getConfigForm().setValues(config);
+			},200);
+		}else{
+			setTimeout(function(){
+				me.getConfigForm().setValues(config);
+			},2000);
+		}
     },
 
     saveConfig	: function(){
 		var me = this,
-		form = me.getForm(),
+		form = me.getConfigForm(),
 		values = form.getValues();
 
 		localStorage.setItem('hymnal-config',Ext.encode(values));

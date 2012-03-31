@@ -123,7 +123,7 @@ Ext.define('Hymnal.controller.Main',{
 			id = +newValue.config.model.getId(),
 			config = Ext.decode(localStorage.getItem('hymnal-config'));
 
-		title.setTitle('Hymno #'+id);
+		title.setTitle('Himno #'+id);
 
 		Ext.fly(newValue.renderElement.query('h3')[0]).setStyle('font-size',(config.fuente+10)+'%');
 		Ext.fly(newValue.renderElement.query('p')[0]).setStyle('font-size',config.fuente+'%');
@@ -137,7 +137,7 @@ Ext.define('Hymnal.controller.Main',{
 			title = me.getTitle();
 
 		carousel.setActiveItem(hymn);
-		title.setTitle('Hymno #'+record.getId());
+		title.setTitle('Himno #'+record.getId());
 		home.setActiveItem(1);
 		
 	},

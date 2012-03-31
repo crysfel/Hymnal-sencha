@@ -1,1 +1,3 @@
 resources/sass/.sass-cache/*.*
+build/
+archive/app.js/

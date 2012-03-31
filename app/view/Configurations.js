@@ -7,7 +7,7 @@
  */
 
 Ext.define('Hymnal.view.Configurations',{
-    extend      : 'Ext.Container',
+    extend      : 'Ext.form.Panel',
     alias       : 'widget.configurations',
     requires	: [
 		'Ext.form.FieldSet',
@@ -31,14 +31,19 @@ Ext.define('Hymnal.view.Configurations',{
 				label	: 'Tamaño fuente',
 				minValue: 20,
 				maxValue: 100,
-				value	: 60,
+				value	: 40,
 				increment: 10,
 				name	: 'fuente'
 			},{
 				xtype	: 'togglefield',
 				label	: 'Ver partitura',
-				name	: 'partitura'
+				name	: 'partitura',
+				disabled: true
 			}]
+		},{
+			xtype	: 'button',
+			text	: 'Guardar',
+			action	: 'save'
 		}]
     }
 });

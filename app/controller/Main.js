@@ -112,9 +112,11 @@ Ext.define('Hymnal.controller.Main',{
 	changeTitle	: function(container,newValue,oldValue){
 		var me = this,
 			title = me.getTitle(),
-			id = +newValue.config.model.getId();
+			id = +newValue.config.model.getId(),
+			config = Ext.decode(localStorage.getItem('hymnal-config'));
 
 		title.setTitle('Hymno #'+id);
+		Ext.fly(newValue.renderElement.query('p')[0]).setStyle('font-size',config.fuente+'%');
 	},
 
 	showHymn	: function(list,index,target,record){

@@ -8,8 +8,24 @@
 
 Ext.define('Hymnal.controller.Config',{
     extend      : 'Ext.app.Controller',
-    
-    config		: {
 
+    config		: {
+		refs	: {
+			form	: 'formpanel'
+		},
+		control		: {
+			'formpanel button[action=save]' : {
+				tap	: 'saveConfig'
+			}
+		}
+    },
+
+    saveConfig	: function(){
+		var me = this,
+		form = me.getForm(),
+		values = form.getValues();
+
+		localStorage.setItem('hymnal-config',Ext.encode(values));
+		Ext.Msg.alert('Alerta','Configuración guardada!');
     }
 });

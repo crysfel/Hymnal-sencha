@@ -94,7 +94,11 @@ Ext.define('Hymnal.controller.Main',{
 		Ext.fly('appLoadingIndicator').destroy();
 		Ext.Viewport.add(home);
 
-		config = config || {fuente:40};
+		if(!config){
+			config = {fuente:40};
+			localStorage.setItem('hymnal-config',Ext.encode(config));
+		}
+		
 		carousel = me.getHymns();
 		for(var i=0,len=hymns.length;i<len;i++){
 			var hymn = hymns[i];

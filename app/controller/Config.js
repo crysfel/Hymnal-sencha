@@ -11,7 +11,9 @@ Ext.define('Hymnal.controller.Config',{
 
     config		: {
 		refs	: {
-			form	: 'formpanel'
+			configForm	: {
+				selector:'formpanel'
+			}
 		},
 		control		: {
 			'formpanel button[action=save]' : {
@@ -22,17 +24,11 @@ Ext.define('Hymnal.controller.Config',{
 
     init : function(){
 		var me = this,
-			config = localStorage.getItem('hymnal-config');
+			config = Ext.decode(localStorage.getItem('hymnal-config'));
 
-		if(config){
-			config = Ext.decode(config);
-		}else{
-			config = {
-				fuente : 40
-			};
-		}
-
-		me.getForm().setValues(config);
+		setTimeout(function(){
+			me.getConfigForm().setValues(config);
+		},200);
     },
 
     saveConfig	: function(){

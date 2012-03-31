@@ -1,1 +1,0 @@
-["/*7cf4a02987164aa7c754902adaa25f5354eb8258",42,227443,"d=this,e,f=d.getHome(),c=d.hymns.getRang",227504,62,"f);e=d.getHymns();for(var b=0,a=c.length;b<a;b++){e.addHymn(c[b])}",227623,123,"d,b){var c=this,e=c.getTitle(),f=+d.config.model.getId();e.setTitle(\"Hymno #\"+f",227816,576,"db",228344,155680]

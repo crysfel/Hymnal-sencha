@@ -20,6 +20,21 @@ Ext.define('Hymnal.controller.Config',{
 		}
     },
 
+    init : function(){
+		var me = this,
+			config = localStorage.getItem('hymnal-config');
+
+		if(config){
+			config = Ext.decode(config);
+		}else{
+			config = {
+				fuente : 40
+			};
+		}
+
+		me.getForm().setValues(config);
+    },
+
     saveConfig	: function(){
 		var me = this,
 		form = me.getForm(),

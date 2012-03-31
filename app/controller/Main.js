@@ -88,14 +88,18 @@ Ext.define('Hymnal.controller.Main',{
 		var me = this,
 			carousel,
 			home = me.getHome(),
-			hymns = me.hymns.getRange();
+			hymns = me.hymns.getRange(),
+			config = Ext.decode(localStorage.getItem('hymnal-config'));
 
 		Ext.fly('appLoadingIndicator').destroy();
 		Ext.Viewport.add(home);
 
+		config = config || {fuente:40};
 		carousel = me.getHymns();
 		for(var i=0,len=hymns.length;i<len;i++){
-			carousel.addHymn(hymns[i]);
+			var hymn = hymns[i];
+			hymn.set('size',config.fuente);
+			carousel.addHymn(hymn);
 		}
 	},
 
@@ -116,6 +120,8 @@ Ext.define('Hymnal.controller.Main',{
 			config = Ext.decode(localStorage.getItem('hymnal-config'));
 
 		title.setTitle('Hymno #'+id);
+
+		Ext.fly(newValue.renderElement.query('h3')[0]).setStyle('font-size',(config.fuente+10)+'%');
 		Ext.fly(newValue.renderElement.query('p')[0]).setStyle('font-size',config.fuente+'%');
 	},
 

@@ -60,7 +60,7 @@ Ext.define('Hymnal.view.HymnsCarousel',{
 				cls   : 'hymn-view',
 				data  : model.getData(),
 				height: 'auto',
-				tpl   : '<h3>{title}</h3><p>{content}</p>'
+				tpl   : '<h3 style="font-size:{size + 10}%">{title}</h3><p style="font-size:{size}%">{content}</p>'
 			}]
 		});
     }

@@ -34,12 +34,12 @@ Ext.define('Hymnal.view.Configurations',{
 				value	: 40,
 				increment: 10,
 				name	: 'fuente'
-			},{
+			}/*,{
 				xtype	: 'togglefield',
 				label	: 'Ver partitura',
 				name	: 'partitura',
 				disabled: true
-			}]
+			}*/]
 		},{
 			xtype	: 'button',
 			text	: 'Guardar',

@@ -46,7 +46,7 @@ Ext.define('Hymnal.view.HymnsCarousel',{
     addHymn	: function(model){
 		var me = this;
 
-		me.add({
+		return me.add({
 			xtype : 'container',
 			padding: 10,
 			itemId: 'hymn-'+model.getId(),
@@ -60,7 +60,29 @@ Ext.define('Hymnal.view.HymnsCarousel',{
 				cls   : 'hymn-view',
 				data  : model.getData(),
 				height: 'auto',
-				tpl   : '<h3 style="font-size:{size + 10}%">{title}</h3><p style="font-size:{size}%">{content}</p>'
+				tpl   : '<h3>{title}</h3><p>{content}</p>'
+			}]
+		});
+    },
+
+    insertHymn	: function(index,model){
+		var me = this;
+
+		return me.insert(index,{
+			xtype : 'container',
+			padding: 10,
+			itemId: 'hymn-'+model.getId(),
+			scrollable	: {
+				direction : 'vertical',
+				directionLock : true
+			},
+			model: model,
+			items: [{
+				xtype : 'component',
+				cls   : 'hymn-view',
+				data  : model.getData(),
+				height: 'auto',
+				tpl   : '<h3>{title}</h3><p>{content}</p>'
 			}]
 		});
     }

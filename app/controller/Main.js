@@ -73,6 +73,8 @@ Ext.define('Hymnal.controller.Main',{
 				tap : 'playMusic'
 			}
 		},
+		fontSize : 40,
+		maxFontSize: 50,
 		mp3Url   : 'http://ia700708.us.archive.org/0/items/HimnarioAdventista/',
 		hymnsUrl : 'http://demos.bleext.com/hymnal/index.php/hymnal/findAll'
 	},
@@ -88,23 +90,29 @@ Ext.define('Hymnal.controller.Main',{
 		var me = this,
 			carousel,
 			home = me.getHome(),
-			hymns = me.hymns.getRange(),
-			config = Ext.decode(localStorage.getItem('hymnal-config'));
+			total = me.hymns.getCount(),
+			config = Ext.decode(localStorage.getItem('hymnal-config')),
+			songs = me.hymns.getRange(0,2);
 
 		Ext.fly('appLoadingIndicator').destroy();
 		Ext.Viewport.add(home);
 
 		if(!config){
-			config = {fuente:40};
+			config = {font:{size:me.getFontSize(),max:me.getMaxFontSize()}};
 			localStorage.setItem('hymnal-config',Ext.encode(config));
+		}else{
+			me.setFontSize(config.font.size);
+			me.setMaxFontSize(config.font.max);
 		}
 		
 		carousel = me.getHymns();
-		for(var i=0,len=hymns.length;i<len;i++){
-			var hymn = hymns[i];
-			hymn.set('size',config.fuente);
-			carousel.addHymn(hymn);
+
+		for(var i=0,len=songs.length;i<len;i++){
+			var song = songs[i];
+			carousel.addHymn(song);
 		}
+
+		carousel.bodyElement.setStyle('font-size',(me.getMaxFontSize() * me.getFontSize()/100)+'px');
 	},
 
 	toggleSearchBar		: function(button,event){
@@ -121,12 +129,28 @@ Ext.define('Hymnal.controller.Main',{
 		var me = this,
 			title = me.getTitle(),
 			id = +newValue.config.model.getId(),
-			config = Ext.decode(localStorage.getItem('hymnal-config'));
+			carousel = me.getHymns(),
+			next;
 
 		title.setTitle('Himno #'+id);
 
-		Ext.fly(newValue.renderElement.query('h3')[0]).setStyle('font-size',(config.fuente+10)+'%');
-		Ext.fly(newValue.renderElement.query('p')[0]).setStyle('font-size',config.fuente+'%');
+		if(newValue && oldValue){
+			var direction = id < oldValue.config.model.getId()?'left':'right';
+			
+			if(direction === 'right'){
+				next = me.db.getById(id + 2);
+				if(next && !carousel.down('#hymn-'+next.getId())){
+					carousel.addHymn(next);
+				}
+			}else{
+				next = me.db.getById(id - 2);
+				if(next && !carousel.down('#hymn-'+next.getId())){
+					carousel.insertHymn(1,next);
+					carousel.setActiveItem(carousel.down('#hymn-'+id));
+				}
+			}
+			carousel.refresh();
+		}
 	},
 
 	showHymn	: function(list,index,target,record){
@@ -135,6 +159,18 @@ Ext.define('Hymnal.controller.Main',{
 			hymn = carousel.down('#hymn-'+record.getId()),
 			home = me.getHome(),
 			title = me.getTitle();
+
+		if(!hymn){
+			var beforePrev = me.db.getById(+record.getId() - 2),
+				prev =  me.db.getById(+record.getId() - 1),
+				next =  me.db.getById(+record.getId() + 1);
+
+			carousel.removeAll();
+			carousel.addHymn(beforePrev);
+			carousel.addHymn(prev);
+			hymn = carousel.addHymn(record);
+			carousel.addHymn(next);
+		}
 
 		carousel.setActiveItem(hymn);
 		title.setTitle('Himno #'+record.getId());
@@ -178,6 +214,7 @@ Ext.define('Hymnal.controller.Main',{
 	searchbtn	: function(btn){
 		this.search(this.getSearchfield());
 	},
+
 	search		: function(field,event){
 		var me = this,
 			filters = [],
@@ -187,14 +224,13 @@ Ext.define('Hymnal.controller.Main',{
 			sortByNumber = false;
 		
 		Ext.each(words,function(word){
-			//if the word is bigger than three characters
-			if(word.length > 3){
+			if(+word){ //if is a number
+				filters.push({property:'id',value:word});
+				sortByNumber = true;
+			}else if(word.length >= 3){ //if the word is bigger than three characters
 				var rg = new RegExp(word,'i');
 
 				filters.push({property:'titlePlain',value:rg});
-			}else if(+word){ //if is a number
-				filters.push({property:'id',value:word});
-				sortByNumber = true;
 			}
 		});
 

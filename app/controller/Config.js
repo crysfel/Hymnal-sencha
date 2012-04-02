@@ -13,6 +13,9 @@ Ext.define('Hymnal.controller.Config',{
 		refs	: {
 			configForm	: {
 				selector:'formpanel'
+			},
+			carousel : {
+				selector	: 'main hymnscarousel'
 			}
 		},
 		control		: {
@@ -28,11 +31,15 @@ Ext.define('Hymnal.controller.Config',{
 
 		if(me.getConfigForm()){
 			setTimeout(function(){
-				me.getConfigForm().setValues(config);
+				me.getConfigForm().setValues({
+					fuente : config.font.size
+				});
 			},200);
 		}else{
 			setTimeout(function(){
-				me.getConfigForm().setValues(config);
+				me.getConfigForm().setValues({
+					fuente : config.font.size
+				});
 			},2000);
 		}
     },
@@ -40,9 +47,13 @@ Ext.define('Hymnal.controller.Config',{
     saveConfig	: function(){
 		var me = this,
 		form = me.getConfigForm(),
-		values = form.getValues();
+		values = form.getValues(),
+		config = Ext.decode(localStorage.getItem('hymnal-config'));
+		config.font.size = values.fuente;
 
-		localStorage.setItem('hymnal-config',Ext.encode(values));
+		me.getCarousel().bodyElement.setStyle('font-size',(config.font.max * config.font.size/100)+'px');
+
+		localStorage.setItem('hymnal-config',Ext.encode(config));
 		Ext.Msg.alert('Alerta','Configuración guardada!');
     }
 });

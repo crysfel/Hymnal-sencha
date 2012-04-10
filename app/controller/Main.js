@@ -50,6 +50,9 @@ Ext.define('Hymnal.controller.Main',{
 			},
 			searchfield : {
 				selector	: 'main hymnslist #searchbar searchfield'
+			},
+			configForm	: {
+				selector:'formpanel'
 			}
 		},
 		control : {
@@ -75,6 +78,7 @@ Ext.define('Hymnal.controller.Main',{
 		},
 		fontSize : 40,
 		maxFontSize: 50,
+		versionUrl : 'http://demos.bleext.com/hymnal/index.php/hymnal/latestVersion',
 		mp3Url   : 'http://ia700708.us.archive.org/0/items/HimnarioAdventista/',
 		hymnsUrl : 'http://demos.bleext.com/hymnal/index.php/hymnal/findAll'
 	},
@@ -82,8 +86,27 @@ Ext.define('Hymnal.controller.Main',{
 	init	: function() {
 		var me = this;
 
+		//Check if there are changes on the database
+		Ext.util.JSONP.request({
+			url : me.getVersionUrl(),
+			success : function(data){
+				var local = +localStorage.getItem('latest-version');
 
-		me.loadData();
+				if(+data.version > local){
+					Ext.Msg.confirm('Actualiación','La base de datos del himnario se ha actualizado, deseas descargarla ahora?',function(btn){
+						if(btn === 'yes'){
+							localStorage.removeItem('hymns');
+						}
+						me.loadData();
+					});
+				}else{
+					me.loadData();
+				}
+			},
+			failure : function(){
+				me.loadData();
+			}
+		});
 	},
 
 	startApp	: function(){
@@ -98,12 +121,22 @@ Ext.define('Hymnal.controller.Main',{
 		Ext.Viewport.add(home);
 
 		if(!config){
-			config = {font:{size:me.getFontSize(),max:me.getMaxFontSize()}};
+			config = {
+				font:{
+					size:me.getFontSize(),max:me.getMaxFontSize()
+				},
+				background:'bg-white'
+			};
 			localStorage.setItem('hymnal-config',Ext.encode(config));
 		}else{
 			me.setFontSize(config.font.size);
 			me.setMaxFontSize(config.font.max);
 		}
+
+		me.getConfigForm().setValues({
+			fontSize : config.font.size,
+			background : config.background
+		});
 		
 		carousel = me.getHymns();
 
@@ -113,6 +146,7 @@ Ext.define('Hymnal.controller.Main',{
 		}
 
 		carousel.bodyElement.setStyle('font-size',(me.getMaxFontSize() * me.getFontSize()/100)+'px');
+		carousel.bodyElement.addCls(config.background);
 	},
 
 	toggleSearchBar		: function(button,event){
@@ -196,6 +230,7 @@ Ext.define('Hymnal.controller.Main',{
 
 	saveData	: function(success, data){
 		localStorage.setItem('hymns',Ext.encode(data));
+		localStorage.setItem('latest-version',data.version);
 
 		this.importDataToStore(data);
 	},

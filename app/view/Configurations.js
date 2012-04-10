@@ -12,7 +12,7 @@ Ext.define('Hymnal.view.Configurations',{
     requires	: [
 		'Ext.form.FieldSet',
 		'Ext.field.Spinner',
-		'Ext.field.Toggle'
+		'Ext.field.Select'
     ],
 
     config		: {
@@ -33,13 +33,17 @@ Ext.define('Hymnal.view.Configurations',{
 				maxValue: 100,
 				value	: 40,
 				increment: 10,
-				name	: 'fuente'
-			}/*,{
-				xtype	: 'togglefield',
-				label	: 'Ver partitura',
-				name	: 'partitura',
-				disabled: true
-			}*/]
+				name	: 'fontSize'
+			},{
+				xtype: 'selectfield',
+				label: 'Fondo',
+				name : 'background',
+				options: [
+					{text: 'Blanco',  value: 'bg-white'},
+					{text: 'Negro', value: 'bg-black'},
+					{text: 'Sepia',  value: 'bg-sepia'}
+				]
+			}]
 		},{
 			xtype	: 'button',
 			text	: 'Guardar',

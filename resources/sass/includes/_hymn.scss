@@ -14,5 +14,20 @@
 	}
 }
 
+.bg-white{
+	background:#fff;
+	color:#000;
+}
+
+.bg-black{
+	background:#000;
+	color:#fff;
+}
+
+.bg-sepia{
+	background:#FFF8DC;
+	color:#654321;
+}
+
 @include pictos-iconmask('music1');
 @include pictos-iconmask('pause');

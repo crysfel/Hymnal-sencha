@@ -50,7 +50,8 @@ Ext.define('Hymnal.view.HymnsList',{
 			},{
 				xtype	: 'button',
 				text	: 'Buscar',
-				action	: 'searchhymns'
+				action	: 'searchhymns',
+				hidden	: true
 			}]
 		},{
 			xtype		: 'list',

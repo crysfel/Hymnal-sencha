@@ -51,6 +51,9 @@ Ext.define('Hymnal.controller.Main',{
 			searchfield : {
 				selector	: 'main hymnslist #searchbar searchfield'
 			},
+			searchbtn : {
+				selector	: 'main hymnslist #searchbar button[action=searchhymns]'
+			},
 			configForm	: {
 				selector:'formpanel'
 			}
@@ -67,7 +70,8 @@ Ext.define('Hymnal.controller.Main',{
 			},
 			"hymnslist toolbar[docked=top] textfield"	: {
 				action	: 'search',
-				blur	: 'blurSearch'
+				blur	: 'blurSearch',
+				focus	: 'focusSearch'
 			},
 			'hymnscarousel' : {
 				activeitemchange : 'changeTitle'
@@ -319,9 +323,14 @@ Ext.define('Hymnal.controller.Main',{
 		this.getResult().getStore().clearFilter();
 	},
 
+	focusSearch : function(){
+		this.getSearchbtn().show();
+	},
+
 	blurSearch	: function(field){
 		if(field.getValue() === ""){
 			this.clearSearch();
+			this.getSearchbtn().hide();
 		}
 	}
 });

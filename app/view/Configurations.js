@@ -44,10 +44,6 @@ Ext.define('Hymnal.view.Configurations',{
 					{text: 'Sepia',  value: 'bg-sepia'}
 				]
 			}]
-		},{
-			xtype	: 'button',
-			text	: 'Guardar',
-			action	: 'save'
 		}]
     }
 });

@@ -19,8 +19,11 @@ Ext.define('Hymnal.controller.Config',{
 			}
 		},
 		control		: {
-			'formpanel button[action=save]' : {
-				tap	: 'saveConfig'
+			'formpanel spinnerfield' : {
+				spin	: 'saveConfig'
+			},
+			'formpanel selectfield' : {
+				change	: 'saveConfig'
 			}
 		}
     },
@@ -40,6 +43,5 @@ Ext.define('Hymnal.controller.Config',{
 		carousel.bodyElement.addCls(config.background);
 
 		localStorage.setItem('hymnal-config',Ext.encode(config));
-		Ext.Msg.alert('Alerta','Configuración guardada!');
     }
 });

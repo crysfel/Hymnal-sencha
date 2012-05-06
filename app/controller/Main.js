@@ -89,28 +89,32 @@ Ext.define('Hymnal.controller.Main',{
 
 	init	: function() {
 		var me = this;
+		
+		if(localStorage.getItem('latest-version')){
+			//Check if there are changes on the database
+			Ext.util.JSONP.request({
+				url : me.getVersionUrl(),
+				success : function(data){
+					var local = +localStorage.getItem('latest-version');
 
-		//Check if there are changes on the database
-		Ext.util.JSONP.request({
-			url : me.getVersionUrl(),
-			success : function(data){
-				var local = +localStorage.getItem('latest-version');
-
-				if(+data.version > local){
-					Ext.Msg.confirm('Actualiación','La base de datos del himnario se ha actualizado, deseas descargarla ahora?',function(btn){
-						if(btn === 'yes'){
-							localStorage.removeItem('hymns');
-						}
+					if(+data.version > local){
+						Ext.Msg.confirm('Actualiación','La base de datos del himnario se ha actualizado, deseas descargarla ahora?',function(btn){
+							if(btn === 'yes'){
+								localStorage.removeItem('hymns');
+							}
+							me.loadData();
+						});
+					}else{
 						me.loadData();
-					});
-				}else{
+					}
+				},
+				failure : function(){
 					me.loadData();
 				}
-			},
-			failure : function(){
-				me.loadData();
-			}
-		});
+			});
+		}else{
+			me.loadData();
+		}
 	},
 
 	startApp	: function(){
@@ -151,6 +155,7 @@ Ext.define('Hymnal.controller.Main',{
 
 		carousel.bodyElement.setStyle('font-size',(me.getMaxFontSize() * me.getFontSize()/100)+'px');
 		carousel.bodyElement.addCls(config.background);
+		Ext.getBody().addCls(Ext.os.deviceType.toLowerCase()+'-styles');
 	},
 
 	toggleSearchBar		: function(button,event){

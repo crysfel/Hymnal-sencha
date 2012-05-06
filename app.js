@@ -8,7 +8,9 @@ Ext.application({
     name: 'Hymnal',
 
     requires: [
-        'Ext.MessageBox'
+        'Ext.MessageBox',
+        'Ext.os',
+        'Ext.device.Device'
     ],
 
     controllers: ['Main','Config'],

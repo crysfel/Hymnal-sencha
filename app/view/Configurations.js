@@ -44,6 +44,11 @@ Ext.define('Hymnal.view.Configurations',{
 					{text: 'Sepia',  value: 'bg-sepia'}
 				]
 			}]
+		},{
+			xtype : 'container',
+			cls   : 'about',
+			docked	: 'bottom',
+			html  : 'Esta aplicación ha sido desarrollada por Bleex S de RL MI'
 		}]
     }
 });

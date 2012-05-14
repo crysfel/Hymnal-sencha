@@ -12,6 +12,8 @@
 	 * This is the name namespace for your application. On IOS, this should match the name of your application in the Apple Provisioning Portal.
 	 */
 	"applicationId":"com.bleext.hymnal",
+	"bundleSeedId":"UWBVUNPYQ5",
+	"provisionProfile": "build/Himnario_Profile.mobileprovision",
 
 	/**
 	 * @cfg {String} versionString
@@ -30,7 +32,7 @@
 	 * For Android, please refer to the Google Launcher icons guide:
 	 * http://developer.android.com/guide/practices/ui_guidelines/icon_design_launcher.html
 	 */
-	"iconName":"resources/icons/Icon~ipad.png",
+	"iconName":"Icon.png",
 
 	/**
 	 * @cfg {String} inputPath
@@ -52,7 +54,7 @@
 	 * This is configuration for your application. `Debug` should always be used unless you are submitting your app to an online
 	 * store - in which case `Release` should be specified.
 	 */
-	"configuration":"Debug",
+	"configuration":"Release",
 
 	/**
 	 * @cfg {String} platform
@@ -77,7 +79,7 @@
 	 *  - iPad
 	 *  - Universal
 	 */
-	"deviceType":"Universal",
+	"deviceType":"iPhone",
 
 	/**
 	 * @cfg {String} certificatePath
@@ -97,7 +99,7 @@
 	 *
 	 * When using a certificatePath on Windows, you do not need to specify this.
 	 */
-	"certificateAlias":"",
+	"certificateAlias":"iPhone Distribution: Crysfel Villa",
 	
 	/**
 	 * @cfg {String} sdkPath
@@ -116,11 +118,14 @@
 	 * @cfg  orientations
 	 * @required
 	 * This is orientations that this application can run.
-	 */
+	 *
 	"orientations": [
 		"portrait",
 		"landscapeLeft",
 		"landscapeRight",
 		"portraitUpsideDown"
+	]*/
+	"orientations": [
+		"portrait"
 	]
 }

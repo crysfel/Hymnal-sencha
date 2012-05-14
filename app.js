@@ -9,8 +9,7 @@ Ext.application({
 
     requires: [
         'Ext.MessageBox',
-        'Ext.os',
-        'Ext.device.Device'
+        'Ext.os'
     ],
 
     controllers: ['Main','Config'],

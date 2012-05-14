@@ -80,7 +80,7 @@ Ext.define('Hymnal.controller.Main',{
 				tap : 'playMusic'
 			}
 		},
-		fontSize : 40,
+		fontSize : Ext.os.deviceType.toLowerCase()==='tablet'?50:40,
 		maxFontSize: 50,
 		versionUrl : 'http://demos.bleext.com/hymnal/index.php/hymnal/latestVersion',
 		mp3Url   : 'http://ia700708.us.archive.org/0/items/HimnarioAdventista/',

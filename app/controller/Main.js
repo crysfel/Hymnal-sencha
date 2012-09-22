@@ -90,28 +90,40 @@ Ext.define('Hymnal.controller.Main',{
 	init	: function() {
 		var me = this;
 		
-		if(localStorage.getItem('latest-version')){
+		if(localStorage.getItem('latest-version') && localStorage.getItem('latest-update')){
 			//Check if there are changes on the database
-			Ext.util.JSONP.request({
-				url : me.getVersionUrl(),
-				success : function(data){
-					var local = +localStorage.getItem('latest-version');
+			//every two weeks
+			var today = new Date(),
+				latest = localStorage.getItem('latest-update'),
+				twoWeeksAgo = new Date().setDate(today.getDate() - 14);
 
-					if(+data.version > local){
-						Ext.Msg.confirm('Actualiación','La base de datos del himnario se ha actualizado, deseas descargarla ahora?',function(btn){
-							if(btn === 'yes'){
-								localStorage.removeItem('hymns');
-							}
+			if(Ext.Date.parse(latest,'Y-m-d H:i:s') < twoWeeksAgo){
+				
+				Ext.util.JSONP.request({
+					url : me.getVersionUrl(),
+					success : function(data){
+						var local = +localStorage.getItem('latest-version');
+
+						localStorage.setItem('latest-update',Ext.Date.format(new Date(),'Y-m-d H:i:s'));
+						if(+data.version > local){
+							Ext.Msg.confirm('Actualiación','La base de datos del himnario se ha actualizado, deseas descargarla ahora?',function(btn){
+								if(btn === 'yes'){
+									localStorage.removeItem('hymns');
+								}
+								me.loadData();
+							});
+						}else{
 							me.loadData();
-						});
-					}else{
+						}
+					},
+					failure : function(){
 						me.loadData();
 					}
-				},
-				failure : function(){
-					me.loadData();
-				}
-			});
+				});
+			}else{
+				me.loadData();
+			}
+			
 		}else{
 			me.loadData();
 		}
@@ -240,6 +252,7 @@ Ext.define('Hymnal.controller.Main',{
 	saveData	: function(success, data){
 		localStorage.setItem('hymns',Ext.encode(data));
 		localStorage.setItem('latest-version',data.version);
+		localStorage.setItem('latest-update',Ext.Date.format(new Date(),'Y-m-d H:i:s'));
 
 		this.importDataToStore(data);
 	},

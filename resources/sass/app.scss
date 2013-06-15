@@ -5,6 +5,9 @@
 @import 'sencha-touch/default/all';
 
 // Custom code goes here..
+@import 'includes/_search.scss';
+@import 'includes/_hymn.scss';
+@import 'includes/_device.scss';
 
 // Examples of using the icon mixin:
 // @include icon('user');

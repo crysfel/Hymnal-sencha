@@ -32,7 +32,7 @@ Ext.define('Hymnal.view.Configurations',{
 				minValue: 20,
 				maxValue: 100,
 				value	: 40,
-				increment: 10,
+				stepValue: 10,
 				name	: 'fontSize'
 			},{
 				xtype: 'selectfield',

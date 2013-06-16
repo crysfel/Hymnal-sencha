@@ -63,9 +63,7 @@ Ext.define('Hymnal.view.HymnsList',{
 				overlay	: true,
 				alphabet: true
 			},
-			store		: {
-				type	: 'hymns'
-			}
+            infinite    : true
 		}]
     }
 });

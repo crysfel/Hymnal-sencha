@@ -89,7 +89,13 @@ Ext.define('Hymnal.controller.Main',{
 
 	init	: function() {
 		var me = this;
-		
+
+		me.loadData();
+		/*
+		// We need to refactor this code, we should not check for new versions
+		// at startup because this slow the opening, we should check for new versions later
+		// probably using a timeout and run the jsonp call after 1 or 2 mins of using the app
+
 		if(localStorage.getItem('latest-version') && localStorage.getItem('latest-update')){
 			//Check if there are changes on the database
 			//every two weeks
@@ -127,13 +133,14 @@ Ext.define('Hymnal.controller.Main',{
 		}else{
 			me.loadData();
 		}
+		*/
 	},
 
 	startApp	: function(){
 		var me = this,
 			carousel,
+			list,
 			home = me.getHome(),
-			total = me.hymns.getCount(),
 			config = Ext.decode(localStorage.getItem('hymnal-config')),
 			songs = me.hymns.getRange(0,2);
 
@@ -157,8 +164,10 @@ Ext.define('Hymnal.controller.Main',{
 			fontSize : config.font.size,
 			background : config.background
 		});
-		
+
 		carousel = me.getHymns();
+		list = me.getResult();
+		list.setStore(me.hymns);
 
 		for(var i=0,len=songs.length;i<len;i++){
 			var song = songs[i];

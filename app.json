@@ -44,6 +44,10 @@
             "x-bootstrap": true
         },
         {
+            "path": "bootstrap.js",
+            "x-bootstrap": true
+        },
+        {
             "path": "app.js",
             "bundle": true,  /* Indicates that all class dependencies are concatenated into this file when build */
             "update": "delta"
@@ -118,8 +122,14 @@
     "archivePath": "archive",
 
     /**
+     * List of package names to require for the cmd build process
+     */
+    "requires": [
+    ],
+
+    /**
      * Uniquely generated id for this application, used as prefix for localStorage keys.
      * Normally you should never change this value.
      */
-    "id": "ef8b8191-7b06-4d08-83cb-b1272d51b328"
+    "id": "40ba0afa-a15a-4118-a270-dc9b86840758"
 }

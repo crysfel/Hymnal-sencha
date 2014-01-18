@@ -10,16 +10,6 @@
     will need to resolve manually.
 */
 
-// DO NOT DELETE - this directive is required for Sencha Cmd packages to work.
-//@require @packageOverrides
-
-//<debug>
-Ext.Loader.setPath({
-    'Ext': 'touch/src',
-    'Hymnal': 'app'
-});
-//</debug>
-
 Ext.application({
     name: 'Hymnal',
 
@@ -45,6 +35,14 @@ Ext.application({
         '748x1024': 'resources/startup/748x1024.png',
         '1536x2008': 'resources/startup/1536x2008.png',
         '1496x2048': 'resources/startup/1496x2048.png'
+    },
+
+    launch: function() {
+        // Destroy the #appLoadingIndicator element
+        //Ext.fly('appLoadingIndicator').destroy();
+
+        // Initialize the main view
+        //Ext.Viewport.add(Ext.create('Hymnal.view.Main'));
     },
 
     onUpdated: function() {

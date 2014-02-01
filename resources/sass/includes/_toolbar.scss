@@ -1,3 +1,24 @@
-.x-tabbar-dark{
+.x-toolbar-dark,
+.hymnal-title-bar{
     background-color:#2d3e4f;
+    color:#fff;
+    border:none !important;
+}
+
+.hymnal-title-bar .x-innerhtml{
+    @include display-box;
+    @include box-orient(horizontal);
+    padding: 10px;
+
+    h1,span{
+        @include box-flex(1);
+    }
+    h1{
+        font-size: 1.3em;
+        text-align: center;
+        font-weight: bold;
+    }
+    span{
+        font-size:1.5em;
+    }
 }

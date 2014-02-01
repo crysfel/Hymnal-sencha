@@ -19,29 +19,18 @@ Ext.define('Hymnal.view.HymnsList',{
 		layout		: 'card',
 		items		: [{
 			docked	: 'top',
-            xtype	: 'toolbar',
-            items	: [{
-				text	: 'Volver',
-				ui		: 'back',
-				action	: 'back',
-				hidden	: true
-            },{
-				xtype	: 'spacer'
-            },{
-				xtype	: 'title',
-				title	: 'Himnario Adventista'
-            },{
-				xtype: 'spacer'
-            },{
-				iconMask: true,
-				iconCls	: 'search',
-				action	: 'search',
-				clearIcon : true
-            }]
+            xtype	: 'component',
+            cls     : 'hymnal-title-bar',
+            html	: [
+                '<span class="icon-menu"></span>',
+                '<h1>Himnario Adventista</h1>',
+                '<span class="icon-search"></span>'
+            ].join('')
 		},{
 			xtype	: 'toolbar',
 			docked	: 'top',
 			itemId	: 'searchbar',
+            hidden  : true,
 			items	: [{
 				xtype	: 'searchfield',
 				flex	: 1,

@@ -7,15 +7,13 @@
  */
 
 Ext.define('Hymnal.view.HymnsCarousel',{
-    extend      : 'Ext.carousel.Carousel',
+    extend      : 'Ext.Container',
     alias       : 'widget.hymnscarousel',
     requires	: [
 		'Ext.Audio'
     ],
 
     config		: {
-		indicator	: false,
-		
 		items		: [{
 			xtype	: 'toolbar',
 			docked	: 'top',
@@ -40,50 +38,41 @@ Ext.define('Hymnal.view.HymnsCarousel',{
 				hidden	: true,
 				iconCls	: 'music1'
 			}]
-		}]
+		}],
+		cls   : 'hymn-view',
+		height: 'auto',
+		scrollable	: {
+			direction : 'vertical',
+			directionLock : true
+		},
+		tpl   : '<h3>{title}</h3><p>{content}</p>'
     },
 
     addHymn	: function(model){
 		var me = this;
 
-		return me.add({
-			xtype : 'container',
-			padding: 10,
-			itemId: 'hymn-'+model.getId(),
-			scrollable	: {
-				direction : 'vertical',
-				directionLock : true
-			},
-			model: model,
-			items: [{
-				xtype : 'component',
-				cls   : 'hymn-view',
-				data  : model.getData(),
-				height: 'auto',
-				tpl   : '<h3>{title}</h3><p>{content}</p>'
-			}]
-		});
+		me.setData(model.getData());
     },
 
     insertHymn	: function(index,model){
-		var me = this;
+		// var me = this;
 
-		return me.insert(index,{
-			xtype : 'container',
-			padding: 10,
-			itemId: 'hymn-'+model.getId(),
-			scrollable	: {
-				direction : 'vertical',
-				directionLock : true
-			},
-			model: model,
-			items: [{
-				xtype : 'component',
-				cls   : 'hymn-view',
-				data  : model.getData(),
-				height: 'auto',
-				tpl   : '<h3>{title}</h3><p>{content}</p>'
-			}]
-		});
+		// return me.insert(index,{
+		// 	xtype : 'container',
+		// 	padding: 10,
+		// 	itemId: 'hymn-'+model.getId(),
+		// 	scrollable	: {
+		// 		direction : 'vertical',
+		// 		directionLock : true
+		// 	},
+		// 	model: model,
+		// 	items: [{
+		// 		xtype : 'component',
+		// 		cls   : 'hymn-view',
+		// 		data  : model.getData(),
+		// 		height: 'auto',
+		// 		tpl   : '<h3>{title}</h3><p>{content}</p>'
+		// 	}]
+		// });
     }
 });

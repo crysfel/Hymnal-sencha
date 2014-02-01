@@ -1,5 +1,5 @@
 Ext.define("Hymnal.view.Main", {
-    extend: 'Ext.tab.Panel',
+    extend: 'Ext.ux.slidenavigation.View',
     requires: [
         'Ext.TitleBar',
         'Ext.util.JSONP'
@@ -7,29 +7,34 @@ Ext.define("Hymnal.view.Main", {
     xtype: 'main',
     
     config: {
-        tabBar          : {
-            layout  : {
-                pack    : 'center',
-                align   : 'center'
-            },
-            docked      : 'bottom'
+        slideSelector: false,
+        containerSlideDelay: 10,
+        selectSlideDuration: 200,
+        itemMask: true,
+        listPosition: 'left',
+        list: {
+            maxDrag: 200,
+            width: 50,
+            grouped: false,
+            items: [{
+                xtype: 'toolbar',
+                docked: 'top',
+                ui: 'dark'
+            }]
+            
         },
         items           : [{
-            title   : 'Búsqueda',
-            layout  : 'fit',
-            items   : [{
-                xtype   : 'hymnslist'
-            }],
-            iconCls : 'search'
+            xtype   : 'hymnslist',
+            title   : '<span class="icon-search image-font"></span>'
         },{
-            title   : 'Himnos',
-            layout  : 'fit',
-            items   : {
-                xtype   : 'hymnscarousel'
-            },
-            iconCls : 'bookmarks'
+            xtype   : 'hymnscarousel',
+            title   : '<span class="icon-book image-font"></span>'
         },{
-            xtype   : 'configurations'
+            xtype   : 'component',
+            title   : '<span class="icon-heart image-font"></span>'
+        },{
+            xtype   : 'configurations',
+            title   : '<span class="icon-cog image-font"></span>'
         }]
     }
 });

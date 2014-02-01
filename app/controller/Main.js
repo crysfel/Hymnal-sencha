@@ -31,32 +31,30 @@ Ext.define('Hymnal.controller.Main',{
 				autoCreate	: true
 			},
 			back : {
-				selector	: 'main hymnslist button[action=back]'
+				selector	: 'hymnslist button[action=back]'
 			},
 			result : {
-				selector	: 'main hymnslist list'
+				selector	: 'hymnslist list'
 			},
 			hymns : {
-				selector	: 'main hymnscarousel'
+				selector	: 'hymnscarousel'
 			},
 			audio : {
-				selector	: 'main hymnscarousel toolbar audio'
+				selector	: 'hymnscarousel toolbar audio'
 			},
 			title : {
-				selector	: 'main hymnscarousel toolbar title'
+				selector	: 'hymnscarousel toolbar title'
 			},
 			searchbar : {
-				selector	: 'main hymnslist #searchbar'
+				selector	: 'hymnslist #searchbar'
 			},
 			searchfield : {
-				selector	: 'main hymnslist #searchbar searchfield'
+				selector	: 'hymnslist #searchbar searchfield'
 			},
 			searchbtn : {
-				selector	: 'main hymnslist #searchbar button[action=searchhymns]'
+				selector	: 'hymnslist #searchbar button[action=searchhymns]'
 			},
-			configForm	: {
-				selector:'formpanel'
-			}
+			configForm	: 'formpanel'
 		},
 		control : {
 			'hymnslist toolbar[docked=top] button[action=search]'	: {
@@ -141,41 +139,22 @@ Ext.define('Hymnal.controller.Main',{
 			carousel,
 			list,
 			home = me.getHome(),
-			config = Ext.decode(localStorage.getItem('hymnal-config')),
 			songs = me.hymns.getRange(0,2);
 
 		Ext.fly('appLoadingIndicator').destroy();
 		Ext.Viewport.add(home);
 
-		if(!config){
-			config = {
-				font:{
-					size:me.getFontSize(),max:me.getMaxFontSize()
-				},
-				background:'bg-white'
-			};
-			localStorage.setItem('hymnal-config',Ext.encode(config));
-		}else{
-			me.setFontSize(config.font.size);
-			me.setMaxFontSize(config.font.max);
-		}
-
-		me.getConfigForm().setValues({
-			fontSize : config.font.size,
-			background : config.background
-		});
-
-		carousel = me.getHymns();
+		//carousel = me.getHymns();
 		list = me.getResult();
 		list.setStore(me.hymns);
 
-		for(var i=0,len=songs.length;i<len;i++){
-			var song = songs[i];
-			carousel.addHymn(song);
-		}
+		// for(var i=0,len=songs.length;i<len;i++){
+		// 	var song = songs[i];
+		// 	carousel.addHymn(song);
+		// }
 
-		carousel.bodyElement.setStyle('font-size',(me.getMaxFontSize() * me.getFontSize()/100)+'px');
-		carousel.bodyElement.addCls(config.background);
+		// carousel.bodyElement.setStyle('font-size',(me.getMaxFontSize() * me.getFontSize()/100)+'px');
+		// carousel.bodyElement.addCls(config.background);
 		Ext.getBody().addCls(Ext.os.deviceType.toLowerCase()+'-styles');
 	},
 
@@ -219,7 +198,11 @@ Ext.define('Hymnal.controller.Main',{
 
 	showHymn	: function(list,index,target,record){
 		var me = this,
-			carousel = me.getHymns(),
+			home = me.getHome();
+
+		home.list.select(1);
+
+		var carousel = me.getHymns(),
 			hymn = carousel.down('#hymn-'+record.getId()),
 			home = me.getHome(),
 			title = me.getTitle();

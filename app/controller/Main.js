@@ -200,29 +200,10 @@ Ext.define('Hymnal.controller.Main',{
 		var me = this,
 			home = me.getHome();
 
-		home.list.select(1);
+		home.list.select(1); //force selection
 
-		var carousel = me.getHymns(),
-			hymn = carousel.down('#hymn-'+record.getId()),
-			home = me.getHome(),
-			title = me.getTitle();
-
-		if(!hymn){
-			var beforePrev = me.db.getById(+record.getId() - 2),
-				prev =  me.db.getById(+record.getId() - 1),
-				next =  me.db.getById(+record.getId() + 1);
-
-			carousel.removeAll();
-			carousel.addHymn(beforePrev);
-			carousel.addHymn(prev);
-			hymn = carousel.addHymn(record);
-			carousel.addHymn(next);
-		}
-
-		carousel.setActiveItem(hymn);
-		title.setTitle('Himno #'+record.getId());
-		home.setActiveItem(1);
-		
+		var carousel = me.getHymns();
+		carousel.addHymn(record);
 	},
 
 	loadData	: function(){

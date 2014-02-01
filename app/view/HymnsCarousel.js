@@ -15,29 +15,15 @@ Ext.define('Hymnal.view.HymnsCarousel',{
 
     config		: {
 		items		: [{
-			xtype	: 'toolbar',
 			docked	: 'top',
-			items	: [{
-				xtype	: 'button',
-				iconMask: true,
-				iconCls	: 'arrow_right',
-				action	: 'play'
-			},{
-				xtype	: 'spacer'
-            },{
-				xtype	: 'audio',
-				hidden	: true
-			},{
-				xtype	: 'title',
-				title	: 'Himno #'
-			},{
-				xtype	: 'spacer'
-            },{
-				xtype	: 'button',
-				iconMask: true,
-				hidden	: true,
-				iconCls	: 'music1'
-			}]
+            xtype	: 'component',
+            cls     : 'hymnal-title-bar',
+            itemId  : 'hymnTitle',
+            tpl	    : [
+                '<span class="icon-menu"></span>',
+                '<h1>Himno #{id}</h1>',
+                '<span class="icon-note-beamed"></span>'
+            ].join('')
 		}],
 		cls   : 'hymn-view',
 		height: 'auto',
@@ -52,6 +38,7 @@ Ext.define('Hymnal.view.HymnsCarousel',{
 		var me = this;
 
 		me.setData(model.getData());
+		me.down('#hymnTitle').setData(model.getData());
     },
 
     insertHymn	: function(index,model){

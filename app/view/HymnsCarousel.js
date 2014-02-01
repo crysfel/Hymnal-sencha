@@ -22,6 +22,7 @@ Ext.define('Hymnal.view.HymnsCarousel',{
             tpl	    : [
                 '<span class="icon-menu"></span>',
                 '<h1>Himno #{id}</h1>',
+                '<span class="icon-heart-empty"></span>',
                 '<span class="icon-note-beamed"></span>'
             ].join('')
 		}],

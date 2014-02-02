@@ -21,7 +21,7 @@ Ext.define('Hymnal.controller.Main',{
 			'HymnsList',
 			'Main',
 			'Categories',
-			'HymnsCarousel',
+			'HymnView',
 			'Configurations'
 		],
 		refs	: {
@@ -37,13 +37,13 @@ Ext.define('Hymnal.controller.Main',{
 				selector	: 'hymnslist list'
 			},
 			hymns : {
-				selector	: 'hymnscarousel'
+				selector	: 'hymnview'
 			},
 			audio : {
-				selector	: 'hymnscarousel toolbar audio'
+				selector	: 'hymnview toolbar audio'
 			},
 			title : {
-				selector	: 'hymnscarousel toolbar title'
+				selector	: 'hymnview toolbar title'
 			},
 			searchbar : {
 				selector	: 'hymnslist #searchbar'
@@ -203,7 +203,7 @@ Ext.define('Hymnal.controller.Main',{
 		home.list.select(1); //force selection
 
 		var carousel = me.getHymns();
-		carousel.addHymn(record);
+		carousel.setHymn(record);
 	},
 
 	loadData	: function(){

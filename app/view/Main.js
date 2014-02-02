@@ -27,7 +27,7 @@ Ext.define("Hymnal.view.Main", {
             xtype   : 'hymnslist',
             title   : '<span class="icon-search image-font"></span>'
         },{
-            xtype   : 'hymnscarousel',
+            xtype   : 'hymnview',
             title   : '<span class="icon-book image-font"></span>'
         },{
             xtype   : 'component',

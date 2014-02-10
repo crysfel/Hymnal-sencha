@@ -1,18 +1,18 @@
 /**
- * @class Hymnal.view.HymnsList
+ * @class Hymnal.view.SongList
  * @extends Ext.dataview.List
  * @author Crysfel Villa
  *
  * Description
  */
 
-Ext.define('Hymnal.view.HymnsList',{
-    extend      : 'Ext.Panel',
-    alias       : 'widget.hymnslist',
+Ext.define('Hymnal.view.SongList',{
+    extend      : 'Ext.Container',
+    xtype       : 'songlist',
     requires	: [
 		'Ext.field.Search',
 		'Ext.dataview.List',
-		'Ext.carousel.Carousel'
+		'Hymnal.store.Songs'
     ],
 
     config		: {
@@ -52,7 +52,22 @@ Ext.define('Hymnal.view.HymnsList',{
 				alphabet: true
 			},
             infinite    : true,
-            variableHeights: true
+            variableHeights: true,
+            store       : {
+                type    : 'songs'
+            }
 		}]
+    },
+
+    initialize : function(){
+        this.callParent(arguments);
+
+        this.element.on('tap',this.handleTab,this);
+    },
+
+    handleTab : function(event){
+        if(event.getTarget('.icon-menu')){
+            this.fireEvent('openmenu',this);
+        }
     }
 });

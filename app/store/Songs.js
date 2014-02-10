@@ -1,17 +1,18 @@
 /**
- * @class Hymnal.store.Hymns
+ * @class Hymnal.store.Songs
  * @extends Ext.data.Store
  * @author Crysfel Villa
  *
  * Description
  */
 
-Ext.define('Hymnal.store.Hymns',{
+Ext.define('Hymnal.store.Songs',{
     extend      : 'Ext.data.Store',
-    alias       : 'store.hymns',
+    alias       : 'store.songs',
+    requires    : 'Hymnal.model.Song',
 
     config      : {
-        model       : 'Hymnal.model.Hymn',
+        model       : 'Hymnal.model.Song',
 
         proxy       : {
             type    : 'memory',

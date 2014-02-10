@@ -17,10 +17,12 @@ Ext.application({
     name: 'Hymnal',
 
     requires: [
-        'Ext.MessageBox'
+        'Ext.MessageBox',
+        'Hymnal.Config'
     ],
 
-    controllers: ['Main','Config'],
+    views       : ['Main'],
+    controllers : ['Main','Songs','Config'],
 
     icon: {
         '57': 'resources/icons/Icon.png',
@@ -42,10 +44,10 @@ Ext.application({
 
     launch: function() {
         // Destroy the #appLoadingIndicator element
-        //Ext.fly('appLoadingIndicator').destroy();
+        Ext.fly('appLoadingIndicator').destroy();
 
         // Initialize the main view
-        //Ext.Viewport.add(Ext.create('Hymnal.view.Main'));
+        Ext.Viewport.add(Ext.create('Hymnal.view.Main'));
     },
 
     onUpdated: function() {

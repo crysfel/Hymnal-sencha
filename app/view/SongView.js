@@ -1,14 +1,14 @@
 /**
- * @class Hymnal.view.HymnView
+ * @class Hymnal.view.SongView
  * @extends Ext.carousel.Carousel
  * @author Crysfel Villa <crysfel@bleext.com>
  *
  * Description
  */
 
-Ext.define('Hymnal.view.HymnView',{
+Ext.define('Hymnal.view.SongView',{
     extend      : 'Ext.Container',
-    alias       : 'widget.hymnview',
+    alias       : 'widget.songview',
     requires	: [
 		'Ext.Audio'
     ],
@@ -19,7 +19,6 @@ Ext.define('Hymnal.view.HymnView',{
 			docked	: 'top',
             xtype	: 'component',
             cls     : 'hymnal-title-bar',
-            itemId  : 'hymnTitle',
             tpl	    : [
                 '<span class="icon-menu"></span>',
                 '<h1>Himno #{id}</h1>',
@@ -35,11 +34,21 @@ Ext.define('Hymnal.view.HymnView',{
 		tpl   : '<h3>{title}</h3><p>{content}</p>'
     },
 
+    initialize : function(){
+        this.callParent(arguments);
+
+        this.element.on('tap',this.handleTab,this);
+    },
+
     setHymn	: function(model){
 		var me = this;
 
 		me.setData(model.getData());
 		me.down('#hymnTitle').setData(model.getData());
 		me.setModel(model);
+    },
+
+    handleTab : function(){
+        console.log(arguments);
     }
 });

@@ -2,7 +2,11 @@ Ext.define("Hymnal.view.Main", {
     extend: 'Ext.ux.slidenavigation.View',
     requires: [
         'Ext.TitleBar',
-        'Ext.util.JSONP'
+        'Ext.util.JSONP',
+        'Hymnal.view.SongList',
+        'Hymnal.view.SongView',
+        'Hymnal.view.Favorites',
+        'Hymnal.view.Configurations'
     ],
     xtype: 'main',
     
@@ -10,7 +14,6 @@ Ext.define("Hymnal.view.Main", {
         slideSelector: false,
         containerSlideDelay: 10,
         selectSlideDuration: 200,
-        itemMask: true,
         listPosition: 'left',
         list: {
             maxDrag: 200,
@@ -24,13 +27,13 @@ Ext.define("Hymnal.view.Main", {
             
         },
         items           : [{
-            xtype   : 'hymnslist',
+            xtype   : 'songlist',
             title   : '<span class="icon-search image-font"></span>'
         },{
-            xtype   : 'hymnview',
+            xtype   : 'songview',
             title   : '<span class="icon-book image-font"></span>'
         },{
-            xtype   : 'component',
+            xtype   : 'favorites',
             title   : '<span class="icon-heart image-font"></span>'
         },{
             xtype   : 'configurations',

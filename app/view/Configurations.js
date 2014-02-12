@@ -19,11 +19,10 @@ Ext.define('Hymnal.view.Configurations',{
 		title   : 'Config',
         padding  : 10,
         iconCls : 'settings',
+        toolbar     : [
+            {title:'Mis Favoritos'}
+        ],
 		items	: [{
-			xtype	: 'toolbar',
-			docked	: 'top',
-			title	: 'Configuraciones'
-		},{
 			xtype	: 'fieldset',
 			defaults: {labelWidth:'50%'},
 			items	: [{

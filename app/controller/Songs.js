@@ -73,11 +73,17 @@ Ext.define('Hymnal.controller.Songs', {
     },
 
     searchSongs : function(field){
-        var value = field.getValue(),
-            regexp = new RegExp(value,'ig');
+        var value = field.getValue();
 
         this.getList().getStore().clearFilter();
-        this.getList().getStore().filter('title',regexp);
+        if(value){
+            if(Ext.isNumber(+value)){
+                this.getList().getStore().filter('id',value);
+            }else{
+                var regexp = new RegExp(value,'ig');
+                this.getList().getStore().filter('title',regexp);
+            }
+        }
     },
 
     showSong : function(cmp,index,item,model){

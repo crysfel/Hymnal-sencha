@@ -16,9 +16,6 @@ Ext.define('Hymnal.view.Configurations',{
     ],
 
     config		: {
-		title   : 'Config',
-        padding  : 10,
-        iconCls : 'settings',
         toolbar     : [
             {title:'Mis Favoritos'}
         ],

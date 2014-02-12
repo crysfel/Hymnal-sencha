@@ -19,6 +19,7 @@
 }
 */
  
+ .x-clear-icon:before,.x-clear-icon:before,
  [class^="icon-"]:before, [class*=" icon-"]:before {
   font-family: "fontello";
   font-style: normal;
@@ -66,3 +67,5 @@
 .icon-pause-circled:before { content: '\e80c'; } /* '' */
 .icon-backward-circled:before { content: '\e80d'; } /* '' */
 .icon-book-open:before { content: '\e809'; } /* '' */
+.icon-cancel-circle:before,
+.x-clear-icon:before { content: '\e810'; } /* '' */

@@ -7,48 +7,37 @@
  */
 
 Ext.define('Hymnal.view.SongView',{
-    extend      : 'Ext.Container',
+    extend      : 'Hymnal.view.Card',
     alias       : 'widget.songview',
     requires	: [
-		'Ext.Audio'
+		  'Ext.Audio'
     ],
 
     config		: {
     	model       : null,
-		items		: [{
-			docked	: 'top',
-            xtype	: 'component',
-            cls     : 'hymnal-title-bar',
-            tpl	    : [
-                '<span class="icon-menu"></span>',
-                '<h1>Himno #{id}</h1>',
-                '<span class="icon-heart-empty"></span>'
-            ].join('')
-		}],
-		cls   : 'hymn-view',
-		height: 'auto',
-		scrollable	: {
-			direction : 'vertical',
-			directionLock : true
-		},
-		tpl   : '<h3>{title}</h3><p>{content}</p>'
+      toolbar     : [
+          {title:'Himno #{id}'},
+          {cls:'icon-heart-empty',fn:'toggleFavorite'}
+      ],
+		  cls   : 'hymn-view',
+		  height: 'auto',
+		  scrollable	 : {
+			   direction     : 'vertical',
+			   directionLock : true
+		  },
+		  tpl   : '<h3>{title}</h3><p>{content}</p>',
+      items : []
     },
 
-    initialize : function(){
-        this.callParent(arguments);
+    setSong	: function(model){
+    		var me = this;
 
-        this.element.on('tap',this.handleTab,this);
+    		me.setData(model.getData());
+    		me.down('#titlebar').setData(model.getData());
+    		me.setModel(model);
     },
 
-    setHymn	: function(model){
-		var me = this;
-
-		me.setData(model.getData());
-		me.down('#hymnTitle').setData(model.getData());
-		me.setModel(model);
-    },
-
-    handleTab : function(){
-        console.log(arguments);
+    toggleFavorite : function(){
+        console.log(this.getModel().get('id'));
     }
 });

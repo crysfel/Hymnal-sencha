@@ -7,7 +7,7 @@
  */
 
 Ext.define('Hymnal.view.SongList',{
-    extend      : 'Ext.Container',
+    extend      : 'Hymnal.view.Card',
     xtype       : 'songlist',
     requires	: [
 		'Ext.field.Search',
@@ -17,29 +17,20 @@ Ext.define('Hymnal.view.SongList',{
 
     config		: {
 		layout		: 'card',
+        toolbar     : [
+            {title:'Himnario Adventista'},
+            {cls:'icon-search',fn:'showSearch'}
+        ],
 		items		: [{
-			docked	: 'top',
-            xtype	: 'component',
-            cls     : 'hymnal-title-bar',
-            html	: [
-                '<span class="icon-menu"></span>',
-                '<h1>Himnario Adventista</h1>',
-                '<span class="icon-search"></span>'
-            ].join('')
-		},{
 			xtype	: 'toolbar',
 			docked	: 'top',
 			itemId	: 'searchbar',
             hidden  : true,
+            padding : '0 20px',
 			items	: [{
 				xtype	: 'searchfield',
 				flex	: 1,
 				placeHolder	: 'Busque por palabras o número'
-			},{
-				xtype	: 'button',
-				text	: 'Buscar',
-				action	: 'searchhymns',
-				hidden	: true
 			}]
 		},{
 			xtype		: 'list',
@@ -59,15 +50,11 @@ Ext.define('Hymnal.view.SongList',{
 		}]
     },
 
-    initialize : function(){
-        this.callParent(arguments);
-
-        this.element.on('tap',this.handleTab,this);
-    },
-
-    handleTab : function(event){
-        if(event.getTarget('.icon-menu')){
-            this.fireEvent('openmenu',this);
+    showSearch : function(){
+        if(!this.searchBar){
+            this.searchBar = this.down('#searchbar');
         }
+
+        this.searchBar.setHidden(!this.searchBar.isHidden());
     }
 });

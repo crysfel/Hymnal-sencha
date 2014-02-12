@@ -10,11 +10,20 @@ Ext.define('Hymnal.controller.Songs', {
         page    : 0,
         total   : 0,
         refs    : {
-            list : 'songlist list'
+            home : 'main',
+            list : 'songlist list',
+            view : 'songview'
         },
         control : {
             'songlist list' : {
-                show  : 'loadSongs'
+                show   : 'loadSongs',
+                itemtap: 'showSong'
+            },
+            'songlist searchfield' : {
+                action : 'searchSongs'
+            },
+            'songview' : {
+                show   : 'showSong'
             }
         }
     },
@@ -59,7 +68,28 @@ Ext.define('Hymnal.controller.Songs', {
                 me.loadSongs();
             },Hymnal.Config.TIMEOUT);
         }
-
+        
         me.getList().getStore().add(data.songs);
+    },
+
+    searchSongs : function(field){
+        var value = field.getValue(),
+            regexp = new RegExp(value,'ig');
+
+        this.getList().getStore().clearFilter();
+        this.getList().getStore().filter('title',regexp);
+    },
+
+    showSong : function(cmp,index,item,model){
+        if(!model){
+            if(!this.getView().getModel()){
+                model = this.getList().getStore().getAt(0);
+                this.getView().setSong(model);
+            }
+        }else{
+            this.getHome().list.select(1); //need to find a better way to select a different view 
+            this.getView().setSong(model);
+        }
+
     }
 });

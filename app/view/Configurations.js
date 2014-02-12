@@ -7,7 +7,7 @@
  */
 
 Ext.define('Hymnal.view.Configurations',{
-    extend      : 'Ext.form.Panel',
+    extend      : 'Hymnal.view.Card',
     alias       : 'widget.configurations',
     requires	: [
 		'Ext.form.FieldSet',

@@ -13,18 +13,12 @@ Ext.define('Hymnal.controller.Main',{
             slider : 'main'
         },
 		control : {
-            'songlist' : {
-                openmenu : 'toggleMenu'
-            }
+            
         }
 	},
 
 	init  	: function() {
 
-	},
-
-    toggleMenu : function(){
-        this.getSlider().toggleContainer();
-    }
+	}
 	
 });

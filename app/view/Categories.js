@@ -7,7 +7,7 @@
  */
 
 Ext.define('Hymnal.view.Categories',{
-    extend      : 'Ext.Panel',
+    extend      : 'Hymnal.view.Card',
     alias       : 'widget.categories',
 
     config		: {

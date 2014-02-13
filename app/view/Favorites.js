@@ -10,7 +10,7 @@ Ext.define('Hymnal.view.Favorites', {
     config: {
         toolbar     : [
             {title:'Mis Favoritos'},
-            {cls:'icon-pencil',fn:'toggleEditMode'}
+            {icon:'icon-pencil',fn:'toggleEditMode'}
         ],
         items       : []   
     },

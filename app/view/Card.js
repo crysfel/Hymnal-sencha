@@ -14,9 +14,9 @@ Ext.define('Hymnal.view.Card', {
     },
 
     constructor : function(){
-        var tpl = ['<span class="icon-menu"></span>'];
+        var tpl = ['<span class="icon-menu toggleMenu"></span>'];
 
-        this.actions = {'icon-menu': 'toggleMenu'};
+        this.actions = {'toggleMenu': true};
         if(this.config.toolbar){
             var obj;
             
@@ -27,9 +27,9 @@ Ext.define('Hymnal.view.Card', {
                     tpl.push('<h1>'+obj.title+'</h1>');
                 }
 
-                if(obj.cls){
-                    this.actions[obj.cls] = obj.fn;
-                    tpl.push('<span class="'+obj.cls+'"></span>');
+                if(obj.fn){
+                    this.actions[obj.fn] = true;
+                    tpl.push('<span class="'+obj.icon+' '+obj.fn+'"></span>');
                 }
             }
         }
@@ -55,9 +55,9 @@ Ext.define('Hymnal.view.Card', {
     },
 
     handleTapEvent : function(event){
-        for(var cls in this.actions){
-            if(!!event.getTarget('.'+cls)){
-                this[this.actions[cls]].call(this);
+        for(var fn in this.actions){
+            if(!!event.getTarget('.'+fn)){
+                this[fn].call(this);
             }
         }
     },

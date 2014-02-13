@@ -12,7 +12,8 @@ Ext.define('Hymnal.controller.Songs', {
         refs    : {
             home : 'main',
             list : 'songlist list',
-            view : 'songview'
+            view : 'songview',
+            title: 'songview #titlebar'
         },
         control : {
             'songlist list' : {
@@ -23,7 +24,8 @@ Ext.define('Hymnal.controller.Songs', {
                 action : 'searchSongs'
             },
             'songview' : {
-                show   : 'showSong'
+                show   : 'showSong',
+                favorite : 'saveFavorite'
             }
         }
     },
@@ -97,5 +99,28 @@ Ext.define('Hymnal.controller.Songs', {
             this.getView().setSong(model);
         }
 
+    },
+
+    saveFavorite : function(id,model){
+        var favs = Ext.StoreMgr.lookup('Favorites'),
+            favIndex = favs.find('num',id),
+            exist = favIndex !== -1;
+
+        if(exist){
+            favs.removeAt(favIndex);
+        }else{
+            favs.add({
+                num     : id,
+                title   : model.get('title')
+            });    
+            favs.sync();
+        }
+        
+        favs.sync();
+
+        this.getTitle().setData({
+            id : id,
+            favorite : exist
+        });
     }
 });

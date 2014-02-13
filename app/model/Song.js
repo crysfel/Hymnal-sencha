@@ -17,11 +17,14 @@ Ext.define('Hymnal.model.Song',{
 		idProperty	: 'id',
 		fields		: [
 			{name:'id',type:'int'},
+            {name:'num',mapping:'id'},
 			'title',
 			'content',
             {name:'preview',mapping:'content',convert:function(v,record){
-                    var str = record.get('content').substring(0,30);
-                    return str.replace(regexp,'');
+                    if(record.get('content')){
+                        var str = record.get('content').substring(0,30);
+                        return str.replace(regexp,'');
+                    }
                 }
             }
 		]

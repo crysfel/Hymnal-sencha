@@ -7,6 +7,9 @@
 
 Ext.define('Hymnal.controller.Main',{
 	extend	: 'Ext.app.Controller',
+    requires: [
+        'Hymnal.store.Favorites'
+    ],
 
 	config	: {	
         refs    : {
@@ -18,7 +21,11 @@ Ext.define('Hymnal.controller.Main',{
 	},
 
 	init  	: function() {
+        var favs = Ext.create('Hymnal.store.Favorites',{
+            id : 'Favorites'
+        });
 
+        favs.load();
 	}
 	
 });

@@ -19,7 +19,7 @@ Ext.define('Hymnal.view.SongList',{
 		layout		: 'card',
         toolbar     : [
             {title:'Himnario Adventista'},
-            {cls:'icon-search',fn:'showSearch'}
+            {icon:'icon-search',fn:'showSearch'}
         ],
 		items		: [{
 			xtype	: 'toolbar',

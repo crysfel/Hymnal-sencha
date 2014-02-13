@@ -17,7 +17,7 @@ Ext.define('Hymnal.view.SongView',{
     	model       : null,
       toolbar     : [
           {title:'Himno #{id}'},
-          {cls:'icon-heart-empty',fn:'toggleFavorite'}
+          {icon:'icon-heart<tpl if="favorite">-empty</tpl>',fn:'toggleFavorite'}
       ],
 		  cls   : 'hymn-view',
 		  height: 'auto',
@@ -30,14 +30,18 @@ Ext.define('Hymnal.view.SongView',{
     },
 
     setSong	: function(model){
-    		var me = this;
+    		var me = this,
+            favs = Ext.StoreMgr.lookup('Favorites');
 
     		me.setData(model.getData());
-    		me.down('#titlebar').setData(model.getData());
+    		me.down('#titlebar').setData({
+            id : model.get('id'),
+            favorite : favs.find('num',model.get('id')) === -1
+        });
     		me.setModel(model);
     },
 
     toggleFavorite : function(){
-        console.log(this.getModel().get('id'));
+        this.fireEvent('favorite',this.getModel().get('id'),this.getModel());
     }
 });

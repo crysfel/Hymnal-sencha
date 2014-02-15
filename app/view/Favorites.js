@@ -17,6 +17,8 @@ Ext.define('Hymnal.view.Favorites', {
         tpl         : [
             '<tpl for="favorites">',
                 '<div class="favorite" data-id="{num}">',
+                    '<span class="icon-play-circled action-button"></span>',
+                    '<span class="icon-cancel-circle action-button"></span>',
                     '<h2 class="hymn-title">{title}</h2>',
                     '<p class="hymn-description">{num} {preview}...</p>',
                 '</div>',
@@ -29,7 +31,7 @@ Ext.define('Hymnal.view.Favorites', {
     },
 
     toggleEditMode : function(){
-
+        this.element.toggleCls('favorites-edit-view');
     },
 
     updateView : function(records){

@@ -4,6 +4,11 @@
 @import 'sencha-touch/base';
 @import 'sencha-touch/base/all';
 
+$green: #29bc9d !default;
+$blue: #2d3e4f !default;
+$red: #ec8179 !default;
+$white: #fff !default;
+
 // Custom code goes here..
 @import 'includes/_search.scss';
 @import 'includes/_favorites.scss';

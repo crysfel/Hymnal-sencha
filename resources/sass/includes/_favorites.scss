@@ -1,5 +1,36 @@
 .favorites-view{
     .favorite{
         padding: 5px;
+
+        .action-button{
+            position: absolute;
+            font-size: 1.5em;
+            margin-top: 7px;
+        }
+        .icon-cancel-circle {
+            display: none;
+            right: 5px;
+            color: $red;
+        }
+        .icon-play-circled{
+            right: 7px;
+            font-size: 1.3em;
+            margin-top: 9px;
+        }
+    }
+}
+
+.favorites-edit-view{
+    .favorite{
+        .icon-play-circled{
+            display:none;
+        }
+        .icon-cancel-circle{
+            display: block;
+        }
+    }
+
+    .hymnal-title-bar .icon-pencil{
+        color:$green;
     }
 }

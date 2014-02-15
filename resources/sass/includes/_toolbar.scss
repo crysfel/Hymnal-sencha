@@ -1,6 +1,6 @@
 .x-toolbar-dark,
 .hymnal-title-bar{
-    background-color:#2d3e4f;
+    background-color:$blue;
     color:#fff;
     border:none !important;
 }
@@ -23,6 +23,6 @@
     }
 
     .icon-heart{
-        color:#ec8179;
+        color:$red;
     }
 }

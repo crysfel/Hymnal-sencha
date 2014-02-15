@@ -1,7 +1,7 @@
 .x-slidenavigation{
 
     .x-slidenavigation-list{
-        background-color:#2d3e4f;
+        background-color:$blue;
         color:#fff;
 
         .x-list-item{
@@ -10,7 +10,7 @@
 
         .x-list-item.x-item-selected.x-list-item-tpl{
             background-color:transparent;
-            color:#29bc9d;
+            color:$green;
         }
     }
 

@@ -37,11 +37,6 @@ Ext.define('Hymnal.view.SongList',{
 			itemTpl		: '<h2 class="hymn-title">{title}</h2><p class="hymn-description"><span class="hymn-number">{id}</span> {preview}...</p>',
 			disableSelection : true,
 			emptyText	: 'No se encontraron himnos con esas palabras o número!',
-			indexBar	: {
-				docked	: 'right',
-				overlay	: true,
-				alphabet: true
-			},
             infinite    : true,
             variableHeights: true,
             store       : {

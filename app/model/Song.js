@@ -8,7 +8,7 @@
 
 (function(){
 
-var regexp = /^1\./;
+var regexp = /^\w*1\./;
 
 Ext.define('Hymnal.model.Song',{
     extend      : 'Ext.data.Model',

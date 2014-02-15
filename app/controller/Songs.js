@@ -111,7 +111,8 @@ Ext.define('Hymnal.controller.Songs', {
         }else{
             favs.add({
                 num     : id,
-                title   : model.get('title')
+                title   : model.get('title'),
+                content : model.get('preview')
             });    
             favs.sync();
         }

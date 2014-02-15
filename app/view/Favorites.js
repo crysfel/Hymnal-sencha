@@ -12,10 +12,29 @@ Ext.define('Hymnal.view.Favorites', {
             {title:'Mis Favoritos'},
             {icon:'icon-pencil',fn:'toggleEditMode'}
         ],
-        items       : []   
+        items       : [],
+        cls         : 'favorites-view',
+        tpl         : [
+            '<tpl for="favorites">',
+                '<div class="favorite" data-id="{num}">',
+                    '<h2 class="hymn-title">{title}</h2>',
+                    '<p class="hymn-description">{num} {preview}...</p>',
+                '</div>',
+            '</tpl>'
+        ],
+        scrollable   : {
+            direction     : 'vertical',
+            directionLock : true
+      }
     },
 
     toggleEditMode : function(){
 
+    },
+
+    updateView : function(records){
+        this.setData({
+            favorites : records
+        });
     }
 });

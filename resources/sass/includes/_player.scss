@@ -1,0 +1,32 @@
+.player-container{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    .player-controls{
+        background-color: $blue;
+        color: #fff;
+        width:300px;
+        margin:0 auto;
+        padding: 10px 15px;
+        font-size: 2em;
+        @include border-top-radius(10px);
+
+        .icon-note-beamed{
+            margin-left: 40px;
+        }
+
+        .music-singer{
+            .icon-user{
+                font-size: 0.9em;
+            }
+            .icon-note{
+                font-size: .5em;
+                margin-top: 0px;
+                position: absolute;
+                margin-left: -15px;
+            }
+        }
+    }
+}

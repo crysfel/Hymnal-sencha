@@ -18,7 +18,8 @@ Ext.application({
 
     requires: [
         'Ext.MessageBox',
-        'Hymnal.Config'
+        'Hymnal.Config',
+        'Hymnal.view.Player'
     ],
 
     views       : ['Main'],
@@ -48,6 +49,9 @@ Ext.application({
 
         // Initialize the main view
         Ext.Viewport.add(Ext.create('Hymnal.view.Main'));
+        Ext.create('Hymnal.view.Player',{
+            renderTo : Ext.getBody()
+        })
     },
 
     onUpdated: function() {

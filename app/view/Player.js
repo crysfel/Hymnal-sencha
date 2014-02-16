@@ -13,7 +13,20 @@ Ext.define('Hymnal.view.Player',{
     alias       : 'widget.player',
 
     config		: {
-		url : 'http://ia700708.us.archive.org/0/items/HimnarioAdventista/'
+        cls     : 'player-container',
+		tpl     : [
+            '<div class="player-controls">',
+                '<span class="icon-backward-circled"></span>',
+                '<span class="icon-play-circled"></span>',
+                '<span class="icon-forward-circled"></span>',
+                '<span class="icon-note-beamed"></span>',
+                '<span class="music-singer">',
+                    '<span class="icon-user"></span>',
+                    '<span class="icon-note"></span>',
+                '</span>',
+            '</div>'
+        ].join(''),
+        data    : {}
     },
 
     initialize   : function(){

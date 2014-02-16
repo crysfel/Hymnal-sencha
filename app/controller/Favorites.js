@@ -47,10 +47,8 @@ Ext.define('Hymnal.controller.Favorites', {
     },
 
     showSong : function(id){
-        var model;
+        var model = this.getList().getStore().getById(id);
 
-        model = this.getList().getStore().getById(id);
-console.log(model);
         this.getHome().list.select(1);
         this.getView().setSong(model);
     }

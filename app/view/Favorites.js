@@ -53,7 +53,7 @@ Ext.define('Hymnal.view.Favorites', {
             }else if(event.getTarget('.icon-play-circled')){
                 this.fireEvent('play',id);
             }else{
-                this.fireEvent('showlyric',id);
+                this.fireEvent('showsong',id);
             }
         }
     }

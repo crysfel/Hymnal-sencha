@@ -16,7 +16,8 @@ Ext.define('Hymnal.controller.Favorites', {
                 favorite : 'updateFavoritesView'
             },
             'favorites'  : {
-                show     : 'updateFavoritesView'
+                show     : 'updateFavoritesView',
+                remove   : 'removeFavorite'
             }
         }
     },
@@ -27,15 +28,19 @@ Ext.define('Hymnal.controller.Favorites', {
                 models = favs.getRange(0),
                 records = [];
 
-            for(var i=0,len=models.length;i<len;i++){
-                records.push({
-                    num : models[i].get('num'),
-                    title : models[i].get('title'),
-                    preview : models[i].get('preview')
-                });
-            }
+            this.getFavs().updateView(models);
+        }
+    },
 
-            this.getFavs().updateView(records);
+    removeFavorite : function(id){
+        var favs = Ext.StoreMgr.lookup('Favorites'),
+            index = favs.find('num',id);
+
+        if(index > -1){
+            favs.removeAt(index);
+            favs.sync();
+
+            this.getFavs().updateView(favs.getRange(0));
         }
     }
 });

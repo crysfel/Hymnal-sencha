@@ -16,18 +16,18 @@ Ext.define('Hymnal.view.Favorites', {
         cls         : 'favorites-view',
         tpl         : [
             '<tpl for="favorites">',
-                '<div class="favorite" data-id="{num}">',
+                '<div class="favorite" data-id="{data.num}">',
                     '<span class="icon-play-circled action-button"></span>',
                     '<span class="icon-cancel-circle action-button"></span>',
-                    '<h2 class="hymn-title">{title}</h2>',
-                    '<p class="hymn-description">{num} {preview}...</p>',
+                    '<h2 class="hymn-title">{data.title}</h2>',
+                    '<p class="hymn-description">{data.num} {data.preview}...</p>',
                 '</div>',
             '</tpl>'
         ],
         scrollable   : {
             direction     : 'vertical',
             directionLock : true
-      }
+        }
     },
 
     toggleEditMode : function(){
@@ -38,5 +38,23 @@ Ext.define('Hymnal.view.Favorites', {
         this.setData({
             favorites : records
         });
+    },
+
+    handleTapEvent : function(event){
+        var node = event.getTarget('.favorite');
+
+        this.callParent(arguments);
+
+        if(node){
+            var id = +Ext.fly(node).getAttribute('data-id');
+
+            if(event.getTarget('.icon-cancel-circle')){
+                this.fireEvent('remove',id);
+            }else if(event.getTarget('.icon-play-circled')){
+                this.fireEvent('play',id);
+            }else{
+                this.fireEvent('showlyric',id);
+            }
+        }
     }
 });

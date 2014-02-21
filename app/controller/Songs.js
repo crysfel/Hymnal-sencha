@@ -13,7 +13,8 @@ Ext.define('Hymnal.controller.Songs', {
             home : 'main',
             list : 'songlist list',
             view : 'songview',
-            title: 'songview #titlebar'
+            title: 'songview #titlebar',
+            player : 'player'
         },
         control : {
             'songlist list' : {
@@ -25,7 +26,8 @@ Ext.define('Hymnal.controller.Songs', {
             },
             'songview' : {
                 show   : 'showSong',
-                favorite : 'saveFavorite'
+                favorite : 'saveFavorite',
+                hide : 'hidePlayer'
             }
         }
     },
@@ -89,16 +91,21 @@ Ext.define('Hymnal.controller.Songs', {
     },
 
     showSong : function(cmp,index,item,model){
+        var player = this.getPlayer();
+
         if(!model){
             if(!this.getView().getModel()){
                 model = this.getList().getStore().getAt(0);
                 this.getView().setSong(model);
+                player.setSong(model.getData());
             }
         }else{
             this.getHome().list.select(1); //need to find a better way to select a different view 
             this.getView().setSong(model);
+            player.setSong(model.getData());
         }
 
+        this.getPlayer().show(true);
     },
 
     saveFavorite : function(id,model){
@@ -123,5 +130,11 @@ Ext.define('Hymnal.controller.Songs', {
             id : id,
             favorite : exist
         });
+    },
+
+    hidePlayer : function(){
+        if(!this.getPlayer().isPlaying()){
+            this.getPlayer().hide(true);
+        }
     }
 });

@@ -13,6 +13,23 @@
         font-size: 2em;
         @include border-top-radius(10px);
 
+        .player-status-bar {
+            height: 3px;
+            background-color: #000;
+            margin-bottom: 5px;
+            padding: 1px;
+
+            .player-timeline{
+                background-color:$green;
+                height:1px;
+            }
+        }
+        .player-song-title {
+            font-size: 0.3em;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
         .icon-note-beamed{
             margin-left: 40px;
         }
@@ -27,6 +44,10 @@
                 position: absolute;
                 margin-left: -15px;
             }
+        }
+
+        .player-selected{
+            color:$green;
         }
     }
 }

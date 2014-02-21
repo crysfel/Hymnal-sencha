@@ -50,6 +50,7 @@ Ext.application({
         // Initialize the main view
         Ext.Viewport.add(Ext.create('Hymnal.view.Main'));
         Ext.create('Hymnal.view.Player',{
+            hidden   : true,
             renderTo : Ext.getBody()
         })
     },

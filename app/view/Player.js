@@ -18,10 +18,12 @@ Ext.define('Hymnal.view.Player',{
     config		: {
         song    : null,
         current : null,
-        showAnimation : 'slide',
+        timeout : 10000,
+        showAnimation : 'slideIn',
         hideAnimation : 'slideOut',
         cls     : 'player-container',
         html    : [
+            '<div class="player-knob"><span class="icon-up-open"></span></div>',
             '<div class="player-controls">',
                 '<div class="player-status-bar">',
                     '<div class="player-timeline" style="width:0%"></div>',
@@ -30,8 +32,8 @@ Ext.define('Hymnal.view.Player',{
                 '<span class="player-control-previous icon-backward-circled"></span>',
                 '<span class="player-control-play icon-play-circled"></span>',
                 '<span class="player-control-next icon-forward-circled"></span>',
-                '<span class="icon-note-beamed player-play-track player-selected"></span>',
-                '<span class="music-singer player-play-song">',
+                '<span class="icon-note-beamed player-play-track"></span>',
+                '<span class="music-singer player-play-song player-selected">',
                     '<span class="icon-user"></span>',
                     '<span class="icon-note"></span>',
                 '</span>',
@@ -53,16 +55,16 @@ Ext.define('Hymnal.view.Player',{
         me.trackEl = me.element.down('.player-play-track');
         me.songEl = me.element.down('.player-play-song');
         me.playPauseEl = me.element.down('.player-control-play');
+        me.knobEl = me.element.down('.player-knob');
 
         me.element.on('tap',me.handleTapEvents,me);
+        me.element.on('swipe',me.showPlayer,me);
         me.audio.on('timeupdate',Ext.Function.createThrottled(this.updateTimeline,1000,this));
         me.audio.on('ended',this.pause,this);
     },
 
     applySong : function(song){
-        if(!this.audio.isPlaying()){
-            this.setTitle(song);
-        }
+        this.setTitle(song);
         return song;
     },
 
@@ -81,6 +83,10 @@ Ext.define('Hymnal.view.Player',{
             me.playPrevious();
         }else if(event.getTarget('.player-control-next')){
             me.playNext();
+        }else if(event.getTarget('.player-status-bar')){
+            me.fastForward(event);
+        }else if(event.getTarget('.player-knob')){
+            me.showPlayer();
         }
     },
 
@@ -140,6 +146,26 @@ Ext.define('Hymnal.view.Player',{
 
     isPlaying : function(){
         return this.audio.isPlaying();
+    },
+
+    fastForward : function(event){
+
+        //setCurrentTime
+    },
+
+    showPlayer : function(){
+        var me = this;
+        
+        me.element.setStyle('bottom','0px');
+        me.knobEl.setStyle('display','none');
+        setTimeout(function(){
+            if(me.audio.isPlaying()){
+                me.element.setStyle('bottom','-50px');
+            }else{
+                me.element.setStyle('bottom','-92px');
+            }
+            me.knobEl.setStyle('display','block');
+        },me.getTimeout());
     },
 
     destroy : function(){

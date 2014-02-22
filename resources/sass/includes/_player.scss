@@ -1,12 +1,21 @@
 .player-container{
     position: absolute;
-    bottom: 0;
+    bottom: -92px;
     left: 0;
     right: 0;
 
+    .player-knob{
+        background-color: $blue;
+        @include border-top-radius(5px);
+        height:30px;
+        width:70px;
+        margin:0 auto;
+        color:$white;
+        text-align: center;
+    }
     .player-controls{
         background-color: $blue;
-        color: #fff;
+        color: $white;
         width:300px;
         margin:0 auto;
         padding: 10px 15px;

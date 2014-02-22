@@ -17,6 +17,7 @@ Ext.define('Hymnal.view.SongView',{
     	model       : null,
       toolbar     : [
           {title:'Himno #{id}'},
+          {icon:'icon-cd',fn:'playSong'},
           {icon:'icon-heart<tpl if="favorite">-empty</tpl>',fn:'toggleFavorite'}
       ],
 		  cls   : 'hymn-view',
@@ -43,5 +44,9 @@ Ext.define('Hymnal.view.SongView',{
 
     toggleFavorite : function(){
         this.fireEvent('favorite',this.getModel().get('id'),this.getModel());
+    },
+
+    playSong : function(){
+        this.fireEvent('play',this.getModel().get('id'),this.getModel());
     }
 });

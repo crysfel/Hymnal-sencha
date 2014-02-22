@@ -62,6 +62,8 @@ Ext.define('Hymnal.view.Player',{
         me.element.on('swipe',me.swipePlayer,me);
         me.audio.on('timeupdate',Ext.Function.createThrottled(this.updateTimeline,1000,this));
         me.audio.on('ended',this.pause,this);
+        me.on('hideplayer',this.hidePlayer,this,{buffer:me.getTimeout()});
+
     },
 
     applySong : function(song){
@@ -81,14 +83,15 @@ Ext.define('Hymnal.view.Player',{
         }else if(event.getTarget('.player-control-play')){
             me.toggleReproduction();
         }else if(event.getTarget('.player-control-previous')){
-            me.playPrevious();
+            me.fireEvent('previous',me.getSong().id);
         }else if(event.getTarget('.player-control-next')){
-            me.playNext();
+            me.fireEvent('next',me.getSong().id);
         }else if(event.getTarget('.player-status-bar')){
             me.fastForward(event);
         }else if(event.getTarget('.player-knob')){
             me.showPlayer();
         }
+        me.fireEvent('hideplayer');
     },
 
     toggleReproduction : function(){
@@ -97,14 +100,6 @@ Ext.define('Hymnal.view.Player',{
         }else{
             this.play();
         }
-    },
-
-    playPrevious : function(){
-
-    },
-
-    playNext : function(){
-
     },
 
     setTitle : function(song){
@@ -160,6 +155,7 @@ Ext.define('Hymnal.view.Player',{
         }else if(event.direction === 'down'){
             this.hidePlayer();
         }
+        me.fireEvent('hideplayer');
     },
 
     showPlayer : function(event){
@@ -167,9 +163,7 @@ Ext.define('Hymnal.view.Player',{
         me.knobEl.setStyle('display','none');
         me.element.setStyle('bottom','0px');
         
-        me.timeoutId = setTimeout(function(){
-            me.hidePlayer();    
-        },me.getTimeout());
+        me.fireEvent('hideplayer');
     },
 
     hidePlayer : function(){
@@ -182,7 +176,6 @@ Ext.define('Hymnal.view.Player',{
 
         me.knobEl.setStyle('display','block');
         me.element.setStyle('bottom',bottom);
-        clearTimeout(me.timeoutId);
     },
 
     destroy : function(){

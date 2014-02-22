@@ -70,7 +70,7 @@ Ext.define('Hymnal.controller.Songs', {
         me.setPage(this.getPage() + 1);
         if(last.id < data.total){
             setTimeout(function(){
-                //me.loadSongs();
+                me.loadSongs();
             },Hymnal.Config.TIMEOUT);
         }
         

@@ -13,10 +13,16 @@ Ext.define('Hymnal.controller.Main',{
 
 	config	: {	
         refs    : {
-            slider : 'main'
+            slider  : 'main',
+            list    : 'songlist list',
+            view : 'songview',
+            player  : 'player'
         },
 		control : {
-            
+            'player' : {
+                previous : 'loadPreviousSong',
+                next     : 'loadNextSong'
+            }
         }
 	},
 
@@ -26,6 +32,37 @@ Ext.define('Hymnal.controller.Main',{
         });
 
         favs.load();
-	}
+	},
+
+    loadPreviousSong : function(current){
+        if(current > 1){
+            var player = this.getPlayer(),
+                SongsController = this.getApplication().getController('Songs');
+
+            current--;
+            
+            var model = this.getList().getStore().getById(current);
+            SongsController.playSong(current,model);
+
+            if(!this.getView().isHidden()){
+                SongsController.showSong(this.getView(),current,null,model);
+            }
+        }
+    },
+
+    loadNextSong    : function(current){
+        if(current < 613){
+            var player = this.getPlayer(),
+                SongsController = this.getApplication().getController('Songs');
+
+            current++;
+            var model = this.getList().getStore().getById(current);
+            SongsController.playSong(current,model);
+
+            if(!this.getView().isHidden()){
+                SongsController.showSong(this.getView(),current,null,model);
+            }
+        }
+    }
 	
 });

@@ -12,7 +12,8 @@ Ext.define('Hymnal.view.Player',{
     extend      : 'Ext.Component',
     xtype       : 'player',
     requires    : [
-        'Ext.Audio'
+        'Ext.Audio',
+        'Ext.Anim'
     ],
 
     config		: {
@@ -58,7 +59,7 @@ Ext.define('Hymnal.view.Player',{
         me.knobEl = me.element.down('.player-knob');
 
         me.element.on('tap',me.handleTapEvents,me);
-        me.element.on('swipe',me.showPlayer,me);
+        me.element.on('swipe',me.swipePlayer,me);
         me.audio.on('timeupdate',Ext.Function.createThrottled(this.updateTimeline,1000,this));
         me.audio.on('ended',this.pause,this);
     },
@@ -153,19 +154,35 @@ Ext.define('Hymnal.view.Player',{
         //setCurrentTime
     },
 
-    showPlayer : function(){
+    swipePlayer : function(event){
+        if(event.direction === 'up'){
+            this.showPlayer();
+        }else if(event.direction === 'down'){
+            this.hidePlayer();
+        }
+    },
+
+    showPlayer : function(event){
         var me = this;
-        
-        me.element.setStyle('bottom','0px');
         me.knobEl.setStyle('display','none');
-        setTimeout(function(){
-            if(me.audio.isPlaying()){
-                me.element.setStyle('bottom','-50px');
-            }else{
-                me.element.setStyle('bottom','-92px');
-            }
-            me.knobEl.setStyle('display','block');
+        me.element.setStyle('bottom','0px');
+        
+        me.timeoutId = setTimeout(function(){
+            me.hidePlayer();    
         },me.getTimeout());
+    },
+
+    hidePlayer : function(){
+        var me = this,
+            bottom = '-92px';
+
+        if(me.audio.isPlaying()){
+            bottom = '-50px'
+        }
+
+        me.knobEl.setStyle('display','block');
+        me.element.setStyle('bottom',bottom);
+        clearTimeout(me.timeoutId);
     },
 
     destroy : function(){

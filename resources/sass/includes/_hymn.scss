@@ -13,20 +13,6 @@
 	}
 }
 
-.bg-white{
-	background:$white;
-	color:#000;
+.hymnal-song-playing{
+	color:$green;
 }
-
-.bg-black{
-	background:#000;
-	color:$white;
-}
-
-.bg-sepia{
-	background:#FFF8DC;
-	color:#654321;
-}
-
-@include icon('music');
-@include icon('pause');

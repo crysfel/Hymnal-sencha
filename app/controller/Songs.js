@@ -128,10 +128,7 @@ Ext.define('Hymnal.controller.Songs', {
         
         favs.sync();
 
-        this.getTitle().setData({
-            id : id,
-            favorite : exist
-        });
+        this.getView().renderTitle(model);
     },
 
     hidePlayer : function(){

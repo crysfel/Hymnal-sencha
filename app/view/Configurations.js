@@ -17,7 +17,7 @@ Ext.define('Hymnal.view.Configurations',{
 
     config		: {
         toolbar     : [
-            {title:'Mis Favoritos'}
+            {title:'Configuraciones'}
         ],
 		items	: [{
 			xtype	: 'fieldset',

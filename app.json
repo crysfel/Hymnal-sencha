@@ -104,6 +104,7 @@
      */
     "resources": [
         "resources/images",
+        "resources/fonts",
         "resources/icons",
         "resources/startup"
     ],

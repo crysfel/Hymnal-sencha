@@ -17,6 +17,14 @@ Ext.Loader.addClassPathMappings({
   "Ext.device.sqlite.SQLResultSetRowList": "touch/src/device/sqlite/Sencha.js",
   "Ext.device.sqlite.SQLTransaction": "touch/src/device/sqlite/Sencha.js",
   "Ext.draw.engine.SvgContext.Gradient": "touch/src/draw/engine/SvgContext.js",
+  "Ext.ux": "ux",
+  "Ext.ux.ActionOverFlowMenuButton": "touch/src/ux/ActionOverFlowMenuButton.js",
+  "Ext.ux.ApplicationMenu": "touch/src/ux/ApplicationMenu.js",
+  "Ext.ux.ContextMenu": "touch/src/ux/ContextMenu.js",
+  "Ext.ux.MenuButton": "touch/src/ux/MenuButton.js",
+  "Ext.ux.TabMenuButton": "touch/src/ux/TabMenuButton.js",
+  "Ext.ux.device": "touch/src/ux/device",
+  "Ext.ux.parse": "touch/src/ux/parse",
   "Hymnal": "app"
 });
 Ext.ClassManager.addNameAlternateMappings({
@@ -736,6 +744,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.ux.parse.Store": [],
   "Ext.ux.parse.association.Pointer": [],
   "Ext.ux.parse.association.Relation": [],
+  "Ext.ux.slidenavigation.View": [],
   "Ext.viewport.Android": [],
   "Ext.viewport.Default": [],
   "Ext.viewport.Ios": [],
@@ -743,7 +752,24 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.viewport.WindowsPhone": [
     "Ext.viewport.WP"
   ],
-  "Hymnal.view.Main": []
+  "Hymnal.Config": [],
+  "Hymnal.controller.Config": [],
+  "Hymnal.controller.Favorites": [],
+  "Hymnal.controller.Main": [],
+  "Hymnal.controller.Songs": [],
+  "Hymnal.model.Category": [],
+  "Hymnal.model.Song": [],
+  "Hymnal.store.Categories": [],
+  "Hymnal.store.Favorites": [],
+  "Hymnal.store.Songs": [],
+  "Hymnal.view.Card": [],
+  "Hymnal.view.Categories": [],
+  "Hymnal.view.Configurations": [],
+  "Hymnal.view.Favorites": [],
+  "Hymnal.view.Main": [],
+  "Hymnal.view.Player": [],
+  "Hymnal.view.SongList": [],
+  "Hymnal.view.SongView": []
 });
 Ext.ClassManager.addNameAliasMappings({
   "Ext.AbstractComponent": [],
@@ -1680,6 +1706,9 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.ux.parse.association.Relation": [
     "association.relation"
   ],
+  "Ext.ux.slidenavigation.View": [
+    "widget.slidenavigationview"
+  ],
   "Ext.viewport.Android": [],
   "Ext.viewport.Default": [
     "widget.viewport"
@@ -1687,7 +1716,40 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.viewport.Ios": [],
   "Ext.viewport.Viewport": [],
   "Ext.viewport.WindowsPhone": [],
+  "Hymnal.Config": [],
+  "Hymnal.controller.Config": [],
+  "Hymnal.controller.Favorites": [],
+  "Hymnal.controller.Main": [],
+  "Hymnal.controller.Songs": [],
+  "Hymnal.model.Category": [],
+  "Hymnal.model.Song": [],
+  "Hymnal.store.Categories": [
+    "store.categories"
+  ],
+  "Hymnal.store.Favorites": [],
+  "Hymnal.store.Songs": [
+    "store.songs"
+  ],
+  "Hymnal.view.Card": [],
+  "Hymnal.view.Categories": [
+    "widget.categories"
+  ],
+  "Hymnal.view.Configurations": [
+    "widget.configurations"
+  ],
+  "Hymnal.view.Favorites": [
+    "widget.favorites"
+  ],
   "Hymnal.view.Main": [
     "widget.main"
+  ],
+  "Hymnal.view.Player": [
+    "widget.player"
+  ],
+  "Hymnal.view.SongList": [
+    "widget.songlist"
+  ],
+  "Hymnal.view.SongView": [
+    "widget.songview"
   ]
 });

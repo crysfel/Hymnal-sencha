@@ -42,10 +42,16 @@ Ext.define('Hymnal.controller.Main',{
             current--;
             
             var model = this.getList().getStore().getById(current);
-            SongsController.playSong(current,model);
+            if(player.isPlaying()){
+                SongsController.playSong(current,model);
+            }else{
+                player.setSong(model.getData());
+            }
 
             if(!this.getView().isHidden()){
                 SongsController.showSong(this.getView(),current,null,model);
+            }else{
+                player.setSong(model.getData());
             }
         }
     },
@@ -57,7 +63,9 @@ Ext.define('Hymnal.controller.Main',{
 
             current++;
             var model = this.getList().getStore().getById(current);
-            SongsController.playSong(current,model);
+            if(player.isPlaying()){
+                SongsController.playSong(current,model);
+            }
 
             if(!this.getView().isHidden()){
                 SongsController.showSong(this.getView(),current,null,model);

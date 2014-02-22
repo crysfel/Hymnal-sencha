@@ -12,7 +12,8 @@ Ext.define('Hymnal.controller.Favorites', {
             home : 'main',
             view : 'songview',
             list : 'songlist list',
-            favs : 'favorites'
+            favs : 'favorites',
+            player  : 'player'
         },
         control : {
             'songview' : {
@@ -21,6 +22,7 @@ Ext.define('Hymnal.controller.Favorites', {
             'favorites'  : {
                 show     : 'updateFavoritesView',
                 remove   : 'removeFavorite',
+                play     : 'playFavorite',
                 showsong : 'showSong'
             }
         }
@@ -51,5 +53,13 @@ Ext.define('Hymnal.controller.Favorites', {
 
         this.getHome().list.select(1);
         this.getView().setSong(model);
+    },
+
+    playFavorite : function(id){
+        var model = this.getList().getStore().getById(id),
+            SongsController = this.getApplication().getController('Songs');;
+
+        SongsController.playSong(id,model);
+        this.getPlayer().showPlayer();
     }
 });

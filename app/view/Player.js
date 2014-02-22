@@ -20,8 +20,7 @@ Ext.define('Hymnal.view.Player',{
         song    : null,
         current : null,
         timeout : 10000,
-        showAnimation : 'slideIn',
-        hideAnimation : 'slideOut',
+        voice   : true,
         cls     : 'player-container',
         html    : [
             '<div class="player-knob"><span class="icon-up-open"></span></div>',
@@ -34,7 +33,7 @@ Ext.define('Hymnal.view.Player',{
                 '<span class="player-control-play icon-play-circled"></span>',
                 '<span class="player-control-next icon-forward-circled"></span>',
                 '<span class="icon-note-beamed player-play-track"></span>',
-                '<span class="music-singer player-play-song player-selected">',
+                '<span class="player-play-voice player-selected">',
                     '<span class="icon-user"></span>',
                     '<span class="icon-note"></span>',
                 '</span>',
@@ -54,7 +53,7 @@ Ext.define('Hymnal.view.Player',{
         me.titleEl = me.element.down('.player-song-title');
         me.timelineEl = me.element.down('.player-timeline');
         me.trackEl = me.element.down('.player-play-track');
-        me.songEl = me.element.down('.player-play-song');
+        me.songEl = me.element.down('.player-play-voice');
         me.playPauseEl = me.element.down('.player-control-play');
         me.knobEl = me.element.down('.player-knob');
 
@@ -74,12 +73,26 @@ Ext.define('Hymnal.view.Player',{
     handleTapEvents : function(event){
         var me = this;
 
-        if(event.getTarget('.music-singer')){
-            me.songEl.addCls('player-selected');
-            me.trackEl.removeCls('player-selected');
+        if(event.getTarget('.player-play-voice')){
+            if(!me.getVoice()){
+                me.songEl.addCls('player-selected');
+                me.trackEl.removeCls('player-selected');
+                this.fireEvent('playvoice',me.getSong().id);
+                me.setVoice(true);
+                if(me.isPlaying()){
+                    me.play();
+                }
+            }
         }else if(event.getTarget('.player-play-track ')){
-            me.trackEl.addCls('player-selected');
-            me.songEl.removeCls('player-selected');
+            if(me.getVoice()){
+                me.trackEl.addCls('player-selected');
+                me.songEl.removeCls('player-selected');
+                this.fireEvent('playtrack',me.getSong().id);
+                me.setVoice(false);
+                if(me.isPlaying()){
+                    me.play();
+                }
+            }
         }else if(event.getTarget('.player-control-play')){
             me.toggleReproduction();
         }else if(event.getTarget('.player-control-previous')){
@@ -109,7 +122,8 @@ Ext.define('Hymnal.view.Player',{
 
     play    : function(){
         var song = this.getSong(),
-            num = song.id;
+            num = song.id,
+            url = Hymnal.Config.VOICE_URL;
         //<debug>
         if(!song){
             Ext.Error.rise('You should call the "setSong" method before playing a song.');
@@ -121,7 +135,11 @@ Ext.define('Hymnal.view.Player',{
         }else if(song.id < 100){
             num = '0' + song.id;
         }
-        this.audio.setUrl(Hymnal.Config.SONGS_URL + num + '.mp3');
+
+        if(!this.getVoice()){
+            url = Hymnal.Config.TRACKS_URL
+        }
+        this.audio.setUrl(url + num + '.mp3');
         this.audio.play();
 
         this.playPauseEl.removeCls('icon-play-circled');
@@ -162,6 +180,7 @@ Ext.define('Hymnal.view.Player',{
         var me = this;
         me.knobEl.setStyle('display','none');
         me.element.setStyle('bottom','0px');
+        me.show();
         
         me.fireEvent('hideplayer');
     },

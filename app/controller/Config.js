@@ -12,20 +12,20 @@ Ext.define('Hymnal.controller.Config',{
     config		: {
 		refs	: {
 			configForm	: {
-				selector:'formpanel'
+				selector:'configurations'
 			},
 			carousel : {
-				selector	: 'main hymnscarousel'
+				selector : 'main hymnscarousel'
 			}
 		},
 		control		: {
-			'formpanel' : {
+			'configurations' : {
 				activate : 'setUserPreferences'
 			},
-			'formpanel spinnerfield' : {
+			'configurations spinnerfield' : {
 				spin	: 'saveConfig'
 			},
-			'formpanel selectfield' : {
+			'configurations selectfield' : {
 				change	: 'saveConfig'
 			}
 		}
@@ -33,39 +33,36 @@ Ext.define('Hymnal.controller.Config',{
 
     setUserPreferences : function(container){
     	var me = this,
-    		config = Ext.decode(localStorage.getItem('hymnal-config'));
+    		config = Ext.decode(localStorage.getItem('hymnal-config')),
+            items = me.getConfigForm().down('fieldset').getInnerItems();
 
     	if(!config){
 			config = {
 				font:{
-					size:me.getFontSize(),max:me.getMaxFontSize()
+					size:40,max:50
 				},
 				background:'bg-white'
 			};
 			localStorage.setItem('hymnal-config',Ext.encode(config));
 		}
 
-
-		me.getConfigForm().setValues({
-			fontSize : config.font.size,
-			background : config.background
-		});
+        Ext.each(items,function(item){
+            if(item.isXType('spinnerfield')) {
+                item.setValue(config.font.size);
+            } else{
+                item.setValue(config.background);
+            }
+        });
     },
 
-    saveConfig	: function(){
-		var me = this,
-			form = me.getConfigForm(),
-			values = form.getValues(),
-			config = Ext.decode(localStorage.getItem('hymnal-config')),
-			carousel = me.getCarousel();
+    saveConfig	: function(comp,value){
+    	var config = Ext.decode(localStorage.getItem('hymnal-config'));
 
-		config.font.size = values.fontSize;
-		config.background = values.background;
-
-		// carousel.bodyElement.setStyle('font-size',(config.font.max * config.font.size/100)+'px');
-		// carousel.bodyElement.removeCls('bg-white bg-black bg-sepia');
-		// carousel.bodyElement.addCls(config.background);
-
+    	if (comp.isXType('spinnerfield')) {
+			config.font.size = value;
+    	} else{
+    		config.background = value;
+    	}
 		localStorage.setItem('hymnal-config',Ext.encode(config));
     }
 });

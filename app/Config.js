@@ -7,7 +7,7 @@ Ext.define('Hymnal.Config', {
 
     LYRICS_URL   : 'http://demos.bleext.com/hymnal/index.php/hymnal/findAll',
     //<debug>
-    LYRICS_URL   : 'http://192.168.2.2:3000/api/hymns/search',
+    LYRICS_URL   : 'http://192.168.1.88:3000/api/hymns/search',
     //</debug>
     VERSION_URL  : 'http://demos.bleext.com/hymnal/index.php/hymnal/latestVersion',
     TIMEOUT      : 1000, //Time to wait for the next page

@@ -39,7 +39,17 @@ Ext.define('Hymnal.view.Configurations',{
 					{text: 'Negro', value: 'bg-black'},
 					{text: 'Sepia',  value: 'bg-sepia'}
 				]
-			}]
+			},{
+                xtype: 'radiofield',
+                name : 'music',
+                value: 'music',
+                label: 'Reproducir pista'
+            },{
+                xtype: 'radiofield',
+                name : 'music',
+                value: 'voice',
+                label: 'Reproducir pista cantada'
+            }]
 		},{
 			xtype : 'container',
 			cls   : 'about',

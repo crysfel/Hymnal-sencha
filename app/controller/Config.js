@@ -27,7 +27,10 @@ Ext.define('Hymnal.controller.Config',{
 			},
 			'configurations selectfield' : {
 				change	: 'saveConfig'
-			}
+			},
+            'configurations radiofield' : {
+                change  : 'saveConfig'
+            }
 		}
     },
 
@@ -41,7 +44,8 @@ Ext.define('Hymnal.controller.Config',{
 				font:{
 					size:40,max:50
 				},
-				background:'bg-white'
+				background:'bg-white',
+                track: 'voice'
 			};
 			localStorage.setItem('hymnal-config',Ext.encode(config));
 		}
@@ -49,7 +53,11 @@ Ext.define('Hymnal.controller.Config',{
         Ext.each(items,function(item){
             if(item.isXType('spinnerfield')) {
                 item.setValue(config.font.size);
-            } else{
+            }else if(item.isXType('radiofield')) {
+                if (item.getValue() == config.track) {
+                    item.check();
+                }
+            }else{
                 item.setValue(config.background);
             }
         });
@@ -60,9 +68,13 @@ Ext.define('Hymnal.controller.Config',{
 
     	if (comp.isXType('spinnerfield')) {
 			config.font.size = value;
-    	} else{
+    	} else if (comp.isXType('selectfield')){
     		config.background = value;
-    	}
+    	}else {
+            if (comp.isChecked()) {
+                config.track = comp.getValue();
+            }
+        }
 		localStorage.setItem('hymnal-config',Ext.encode(config));
     }
 });

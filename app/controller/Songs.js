@@ -92,7 +92,10 @@ Ext.define('Hymnal.controller.Songs', {
     },
 
     showSong : function(cmp,index,item,model){
-        var player = this.getPlayer();
+        var player = this.getPlayer(),
+            config = Ext.decode(localStorage.getItem('hymnal-config')),
+            trackEL = player.element.down('.player-play-track'),
+            songEl = player.element.down('.player-play-voice');
 
         if(!model){
             if(!this.getView().getModel()){
@@ -107,6 +110,21 @@ Ext.define('Hymnal.controller.Songs', {
         if(model && !player.isPlaying()){
             player.setSong(model.getData());
         }
+
+        cmp.bodyElement.setStyle('font-size',(config.font.max * config.font.size/100)+'px');
+        cmp.bodyElement.removeCls('bg-white bg-black bg-sepia');
+        cmp.bodyElement.addCls(config.background);
+
+        if (config.track == 'music') {
+            player.setVoice(false);
+            trackEL.addCls('player-selected');
+            songEl.removeCls('player-selected');
+        }else{
+            player.setVoice(true);
+            songEl.addCls('player-selected');
+            trackEL.removeCls('player-selected');
+        }
+
         this.getPlayer().show(true);
     },
 

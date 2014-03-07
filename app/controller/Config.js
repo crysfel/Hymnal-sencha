@@ -14,8 +14,8 @@ Ext.define('Hymnal.controller.Config',{
 			configForm	: {
 				selector:'configurations'
 			},
-			carousel : {
-				selector : 'main hymnscarousel'
+			hymn : {
+				selector : 'songview'
 			}
 		},
 		control		: {
@@ -33,7 +33,6 @@ Ext.define('Hymnal.controller.Config',{
             }
 		}
     },
-
     setUserPreferences : function(container){
     	var me = this,
     		config = Ext.decode(localStorage.getItem('hymnal-config')),
@@ -42,7 +41,7 @@ Ext.define('Hymnal.controller.Config',{
     	if(!config){
 			config = {
 				font:{
-					size:40,max:50
+					size:Hymnal.Config.FONT_SIZE,max:Hymnal.Config.MAX_FONT_SIZE
 				},
 				background:'bg-white',
                 track: 'voice'

@@ -12,7 +12,8 @@ Ext.define('Hymnal.view.Configurations',{
     requires	: [
 		'Ext.form.FieldSet',
 		'Ext.field.Spinner',
-		'Ext.field.Select'
+		'Ext.field.Select',
+        'Ext.field.Radio'
     ],
 
     config		: {

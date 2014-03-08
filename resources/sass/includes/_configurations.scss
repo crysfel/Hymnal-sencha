@@ -1,98 +1,92 @@
-.x-form-fieldset {
-    margin: .5em .5em 1.5em;
+.configurations{
+    .x-form-fieldset {
+        margin: .5em .5em 1.5em;
 
-    .x-form-fieldset-inner{
-        border: none !important;
-    }
-}
-
-.x-form-label {
-    color: $gray-text;
-    text-shadow: rgba(255,255,255,0.25) 0 0.08em 0;
-    padding: 0.6em;
-
-    span{
-        font-weight: normal;
-        font-size: 15px;
-    }
-}
-
-.x-input-el {
-    padding: .4em;
-    min-height: 2.5em;
-    border-width: 0;
-    -webkit-appearance: none;
-}
-
-.x-spinner{
-    .x-spinner-button{
-        color: $white;
-        margin-top: .25em;
-        margin-bottom: .25em;
-        width: 2em;
-        padding: .23em 0 .27em;
-        font-weight: bold;
-        text-align: center;
-        border:none !important;
-        @include border-radius(3px);
+        .x-form-fieldset-inner{
+            border: none !important;
+        }
     }
 
-    .x-spinner-button-up{
-        background-color: $green;
-    }
-    .x-spinner-button-down{
-        background-color: $blue;
-        margin-right: 3px;
-    }
-}
+    .x-form-label {
+        color: $gray-text;
+        text-shadow: rgba(255,255,255,0.25) 0 0.08em 0;
+        padding: 0.6em;
 
-.x-input-el:checked + .x-field-mask::after {
-    color: $green;
-}
-.x-input-radio:checked + .x-field-mask::after {
-    background: $green;
-}
-.x-input-radio {
-    visibility: hidden;
-}
-.x-field-radio{
-    .x-field-mask {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
+        span{
+            font-weight: normal;
+            font-size: 15px;
+        }
     }
-    .x-field-mask::before {
-        content: '';
-        position: absolute;
-        width: 26px;
-        height: 26px;
-        top: 11px;
-        left: auto;
-        right: 11px;
-        background-color: #fff;
-        -webkit-border-radius: 26px;
-        -moz-border-radius: 26px;
-        -ms-border-radius: 26px;
-        -o-border-radius: 26px;
-        border-radius: 26px;
-        border: #ccc 1px solid;
+
+    .x-input-el {
+        padding: .4em;
+        min-height: 2.5em;
+        border-width: 0;
+        -webkit-appearance: none;
     }
-    .x-field-mask::after {
-        content: '';
-        position: absolute;
-        width: 16px;
-        height: 16px;
-        top: 16px;
-        left: auto;
-        right: 16px;
-        background-color: $gray-bg;
-        -webkit-border-radius: 16px;
-        -moz-border-radius: 16px;
-        -ms-border-radius: 16px;
-        -o-border-radius: 16px;
-        border-radius: 16px;
+
+    .x-spinner{
+        .x-spinner-button{
+            color: $white;
+            margin-top: .25em;
+            margin-bottom: .25em;
+            width: 2em;
+            padding: .23em 0 .27em;
+            font-weight: bold;
+            text-align: center;
+            border:none !important;
+            @include border-radius(3px);
+        }
+
+        .x-spinner-button-up{
+            background-color: $green;
+        }
+        .x-spinner-button-down{
+            background-color: $blue;
+            margin-right: 3px;
+        }
+    }
+
+    .x-input-el:checked + .x-field-mask::after {
+        color: $green;
+    }
+    .x-input-radio:checked + .x-field-mask::after {
+        background: $green;
+    }
+    .x-input-radio {
+        visibility: hidden;
+    }
+    .x-field-radio{
+        .x-field-mask {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+        .x-field-mask::before {
+            content: '';
+            position: absolute;
+            width: 26px;
+            height: 26px;
+            top: 11px;
+            left: auto;
+            right: 11px;
+            background-color: #fff;
+            @include border-radius(26px);
+            border: #ccc 1px solid;
+        }
+        .x-field-mask::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            top: 16px;
+            left: auto;
+            right: 16px;
+            background-color: $gray-bg;
+            @include border-radius(16px);
+        }
     }
 }
 
@@ -104,6 +98,9 @@
     padding: 10px 15px;
     margin:8px 8px 24px 8px;
 
+    h2,h3{
+        color:$black;
+    }
     h4{
         font-size: 18px;
         color: #111;

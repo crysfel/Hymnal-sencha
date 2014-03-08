@@ -15,6 +15,7 @@ Ext.define('Hymnal.view.Favorites', {
         items       : [],
         cls         : 'favorites-view',
         tpl         : [
+            '<div class="custom-panel">',
             '<tpl for="favorites">',
                 '<div class="favorite" data-id="{data.num}">',
                     '<span class="icon-play-circled action-button"></span>',
@@ -22,7 +23,8 @@ Ext.define('Hymnal.view.Favorites', {
                     '<h2 class="hymn-title">{data.title}</h2>',
                     '<p class="hymn-description">{data.num} {data.preview}...</p>',
                 '</div>',
-            '</tpl>'
+            '</tpl>',
+            '</div>'
         ],
         scrollable   : {
             direction     : 'vertical',

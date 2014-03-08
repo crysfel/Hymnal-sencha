@@ -1,4 +1,4 @@
-.hymn-view{
+.hymn-view .custom-panel{
 	h3{
 		font-weight:bold;
 		font-size:1.3em;
@@ -7,6 +7,7 @@
 	}
 	p{
 		font-size:1em;
+		line-height: 1.3em;
 		white-space:pre-wrap;
 		padding-bottom: 80px;
 		margin:10px;
@@ -15,4 +16,8 @@
 
 .hymnal-song-playing{
 	color:$green;
+}
+
+.list-panel{
+	background-color:#fff;
 }

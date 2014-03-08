@@ -23,6 +23,7 @@ Ext.define('Hymnal.view.Configurations',{
 		items	: [{
             xtype : 'container',
             layout: 'auto',
+            cls   : 'configurations',
             items : [{
                 xtype   : 'fieldset',
                 defaults: {labelWidth:'50%'},

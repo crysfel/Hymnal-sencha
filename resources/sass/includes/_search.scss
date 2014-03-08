@@ -21,8 +21,16 @@
     height:55px;
 }
 
+.hymn-list .x-list-item{
+    background-color:#fff;
+}
+
 .hymn-title{
+    color:$black;
 	font-weight:bold;
+    font-size: 18px;
+    height:23px;
+    overflow: hidden;
 }
 .hymn-description{
 	font-size:0.80em;

@@ -26,7 +26,7 @@ Ext.define('Hymnal.view.SongList',{
 			docked	: 'top',
 			itemId	: 'searchbar',
             hidden  : true,
-            padding : '0 20px',
+            padding : '0 10px',
 			items	: [{
 				xtype	: 'searchfield',
 				flex	: 1,
@@ -34,6 +34,7 @@ Ext.define('Hymnal.view.SongList',{
 			}]
 		},{
 			xtype		: 'list',
+            cls         : 'hymn-list',
 			itemTpl		: '<h2 class="hymn-title">{title}</h2><p class="hymn-description"><span class="hymn-number">{id}</span> {preview}...</p>',
 			disableSelection : true,
 			emptyText	: 'No se encontraron himnos con esas palabras o número!',

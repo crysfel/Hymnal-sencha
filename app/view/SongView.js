@@ -26,7 +26,7 @@ Ext.define('Hymnal.view.SongView',{
 			direction     : 'vertical',
 			directionLock : true
 		},
-		tpl   : '<h3>{title}</h3><p>{content}</p>',
+		tpl   : '<div class="custom-panel"><h3>{title}</h3><p>{content}</p></div>',
         items : []
     },
 

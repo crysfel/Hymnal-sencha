@@ -7,9 +7,14 @@
 }
 
 .x-form-label {
-    color: #333;
+    color: $gray-text;
     text-shadow: rgba(255,255,255,0.25) 0 0.08em 0;
     padding: 0.6em;
+
+    span{
+        font-weight: normal;
+        font-size: 15px;
+    }
 }
 
 .x-input-el {
@@ -29,6 +34,7 @@
         font-weight: bold;
         text-align: center;
         border:none !important;
+        @include border-radius(3px);
     }
 
     .x-spinner-button-up{
@@ -36,6 +42,7 @@
     }
     .x-spinner-button-down{
         background-color: $blue;
+        margin-right: 3px;
     }
 }
 
@@ -80,11 +87,56 @@
         top: 16px;
         left: auto;
         right: 16px;
-        background-color: $red;
+        background-color: $gray-bg;
         -webkit-border-radius: 16px;
         -moz-border-radius: 16px;
         -ms-border-radius: 16px;
         -o-border-radius: 16px;
         border-radius: 16px;
+    }
+}
+
+.custom-panel{
+    @include border-radius(3px);
+    @include box-shadow(0 3px 0 rgba(12,12,12,0.03));
+    background: #fcfcfc;
+    border: 0;
+    padding: 10px 15px;
+    margin:8px 8px 24px 8px;
+
+    h4{
+        font-size: 18px;
+        color: #111;
+        font-weight:bold;
+    }
+    p{
+        font-size: 15px;
+        line-height: 24px;
+        margin-bottom: 20px;
+    }
+}
+
+.x-picker{
+    background-color: $blue;
+
+    .x-picker-item{
+        color:#fff;
+        height:25px;
+    }
+    .x-picker-mask{
+        
+        .x-picker-bar{
+            height:2.5em;
+            background-color:rgba(41, 188, 157,0.3);
+        }
+    }
+
+    .x-button{
+        background-color:$green;
+        color:#fff;
+        @include border-radius(3px);
+        border: none;
+        padding: 5px 15px;
+        margin: 0 10px;
     }
 }

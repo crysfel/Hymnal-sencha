@@ -95,17 +95,19 @@ Ext.define('Hymnal.controller.Songs', {
         if(model && !player.isPlaying()){
             player.setSong(model.getData());
         }
+        
+        player.setVoice(true);
+        songEl.addCls('player-selected');
+        trackEL.removeCls('player-selected');
+            
+        if(config){
+            cmp.bodyElement.setStyle('font-size',(config.font.max * config.font.size/100)+'px');
 
-        cmp.bodyElement.setStyle('font-size',(config.font.max * config.font.size/100)+'px');
-
-        if (config.track == 'music') {
-            player.setVoice(false);
-            trackEL.addCls('player-selected');
-            songEl.removeCls('player-selected');
-        }else{
-            player.setVoice(true);
-            songEl.addCls('player-selected');
-            trackEL.removeCls('player-selected');
+            if (config.track == 'music') {
+                player.setVoice(false);
+                trackEL.addCls('player-selected');
+                songEl.removeCls('player-selected');
+            }
         }
 
         this.getPlayer().show(true);

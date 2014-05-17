@@ -83,7 +83,7 @@ Ext.define('Hymnal.controller.Main',{
         console.log(arguments);
         preferences = preferences || this.preferences
         console.log(preferences);
-        Ext.getBody().removeCls('theme-light theme-dark theme-sepia');
+        Ext.getBody().removeCls('theme-light theme-dark theme-orange theme-blue');
         Ext.getBody().addCls(preferences.background);
     }
 	

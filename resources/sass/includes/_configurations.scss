@@ -118,7 +118,7 @@
 
     .x-picker-item{
         color:#fff;
-        height:25px;
+        height:auto;
     }
     .x-picker-mask{
         
@@ -136,6 +136,14 @@
         padding: 5px 15px;
         margin: 0 10px;
     }
+
+    .x-picker-slot .x-dataview-item {
+        height: 2.5em;
+        line-height: 2.5em;
+        font-weight: bold;
+        padding: 0 10px;
+        vertical-align: middle;
+    }
 }
 
 .theme-dark{
@@ -145,5 +153,24 @@
     .configurations .x-input-el{
         background-color:$dark-input-bg-color;
         color:#fff;
+    }
+}
+
+.theme-orange{
+    .x-picker{
+        background-color: $orange-selector-bg-color;
+
+        .x-picker-mask{
+            .x-picker-bar{
+                background-color:rgba(136, 205, 220,0.3);
+            }
+        }
+        .x-button{
+            background-color:$orange-selector-btn-bg-color;
+        }
+    }
+    .configurations .x-input-el{
+        background-color:$orange-input-bg-color;
+        color:#000;
     }
 }

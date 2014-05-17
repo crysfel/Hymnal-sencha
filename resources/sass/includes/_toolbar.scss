@@ -40,3 +40,17 @@
         }
     }
 }
+
+.theme-orange{
+    .x-toolbar-dark,
+    .hymnal-title-bar{
+        background-color:$orange-toolbar-bg-color;
+    }
+
+    .hymnal-title-bar .x-innerhtml{
+
+        .icon-heart{
+            color:$orange-red;
+        }
+    }
+}

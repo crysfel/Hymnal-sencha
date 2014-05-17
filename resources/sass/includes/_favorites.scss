@@ -35,3 +35,13 @@
         color:$green;
     }
 }
+
+.theme-orange{
+    .favorites-view{
+        .favorite{
+            .action-button{
+                color:$orange-red;
+            }
+        }
+    }
+}

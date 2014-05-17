@@ -29,3 +29,13 @@
         background-color:$dark-sidebar-bg-color;
     }
 }
+
+.theme-orange{
+    .x-slidenavigation-list{
+        background-color:$orange-sidebar-bg-color;
+
+        .x-list-item.x-item-selected.x-list-item-tpl{
+            color:$orange-sidebar-bg-selection-color;
+        }
+    }
+}

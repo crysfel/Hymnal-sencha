@@ -29,6 +29,25 @@ $dark-input-bg-color:#000 !default;
 $dark-player-bg-color:$dark-card-bg-color !default;
 $dark-selector-bg-color:$dark-card-bg-color !default;
 
+//orange theme
+$orange-card-bg-color:#444 !default;
+$orange-toolbar-bg-color: #e67e22 !default;
+$orange-red: #88cddc !default;
+
+// $orange-list-bg-color:#ecf0f1 !default;
+// $orange-list-font-color:#ccc !default;
+// $orange-list-font-small-color:#777 !default;
+
+$orange-player-bg-color:#88cddc !default;
+$orange-player-bg-selection-color:$orange-toolbar-bg-color !default;
+$orange-sidebar-bg-color: $orange-toolbar-bg-color !default;
+$orange-sidebar-bg-selection-color: $orange-player-bg-color !default;
+
+$orange-view-bg-color: $orange-toolbar-bg-color !default;
+$orange-input-bg-color:#fff !default;
+$orange-selector-bg-color:#f39c12 !default;
+$orange-selector-btn-bg-color:$orange-player-bg-color !default;
+
 // Custom code goes here..
 @import 'includes/_search.scss';
 @import 'includes/_favorites.scss';

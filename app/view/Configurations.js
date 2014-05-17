@@ -43,7 +43,8 @@ Ext.define('Hymnal.view.Configurations',{
                     options: [
                         {text: 'Claro',  value: 'theme-light'},
                         {text: 'Obscuro', value: 'theme-dark'},
-                        {text: 'Sepia',  value: 'theme-sepia'}
+                        {text: 'Naranja',  value: 'theme-orange'}
+                        // {text: 'Azul',  value: 'theme-blue'}
                     ]
                 },{
                     xtype: 'radiofield',

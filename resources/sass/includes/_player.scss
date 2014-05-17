@@ -71,3 +71,25 @@
         }
     }
 }
+
+.theme-orange{
+    .player-container{
+        .player-knob{
+            background-color: $orange-player-bg-color;
+        }
+        .player-controls{
+            background-color: $orange-player-bg-color;
+
+            .player-selected{
+                color:$orange-player-bg-selection-color;
+            }
+
+            .player-status-bar {
+
+                .player-timeline{
+                    background-color:$orange-toolbar-bg-color;
+                }
+            }
+        }
+    }
+}

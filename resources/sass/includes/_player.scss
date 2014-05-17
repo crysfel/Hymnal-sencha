@@ -60,3 +60,14 @@
         }
     }
 }
+
+.theme-dark{
+    .player-container{
+        .player-knob{
+            background-color: $dark-player-bg-color;
+        }
+        .player-controls{
+            background-color: $dark-player-bg-color;
+        }
+    }
+}

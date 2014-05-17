@@ -22,7 +22,7 @@
 }
 
 .hymn-list .x-list-item{
-    background-color:#fff;
+    background-color:$list-bg;
 }
 
 .hymn-title{
@@ -38,4 +38,20 @@
 }
 .x-list-emptytext .x-innerhtml {
 	padding:20px;
+}
+
+
+
+.theme-dark{
+    .hymn-list .x-list-item{
+        background-color:$dark-list-bg-color;
+
+        .hymn-title{
+            color:$dark-list-font-color;
+            font-weight:normal;
+        }
+        .hymn-description{
+            color:$dark-list-font-small-color;
+        }
+    }
 }

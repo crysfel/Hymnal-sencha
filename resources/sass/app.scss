@@ -12,6 +12,23 @@ $gray-bg: #e4e7ea !default;
 $gray-text: #636e7b !default;
 $black:#111;
 
+$list-bg:#fff !default;
+
+//dark theme
+$dark-card-bg-color:#444 !default;
+$dark-toolbar-bg-color: #111 !default;
+$dark-red: #ec8179 !default;
+
+$dark-list-bg-color:#1f1f1f !default;
+$dark-list-font-color:#ccc !default;
+$dark-list-font-small-color:#777 !default;
+
+$dark-sidebar-bg-color: $dark-toolbar-bg-color !default;
+$dark-view-bg-color: $dark-toolbar-bg-color !default;
+$dark-input-bg-color:#000 !default;
+$dark-player-bg-color:$dark-card-bg-color !default;
+$dark-selector-bg-color:$dark-card-bg-color !default;
+
 // Custom code goes here..
 @import 'includes/_search.scss';
 @import 'includes/_favorites.scss';

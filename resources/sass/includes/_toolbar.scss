@@ -26,3 +26,17 @@
         color:$red;
     }
 }
+
+.theme-dark{
+    .x-toolbar-dark,
+    .hymnal-title-bar{
+        background-color:$dark-toolbar-bg-color;
+    }
+
+    .hymnal-title-bar .x-innerhtml{
+
+        .icon-heart{
+            color:$dark-red;
+        }
+    }
+}

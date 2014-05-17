@@ -38,12 +38,12 @@ Ext.define('Hymnal.view.Configurations',{
                     name    : 'fontSize'
                 },{
                     xtype: 'selectfield',
-                    label: 'Fondo',
+                    label: 'Vista',
                     name : 'background',
                     options: [
-                        {text: 'Blanco',  value: 'bg-white'},
-                        {text: 'Negro', value: 'bg-black'},
-                        {text: 'Sepia',  value: 'bg-sepia'}
+                        {text: 'Claro',  value: 'theme-light'},
+                        {text: 'Obscuro', value: 'theme-dark'},
+                        {text: 'Sepia',  value: 'theme-sepia'}
                     ]
                 },{
                     xtype: 'radiofield',
@@ -60,7 +60,7 @@ Ext.define('Hymnal.view.Configurations',{
                 xtype: 'component',
                 cls  : 'custom-panel',
                 html : [
-                    '<h4>Sobre esta app</h4>',
+                    '<h3>Sobre esta app</h3>',
                     '<p>Esta app ha sido desarrollada para el beneficio de todos aquellos que quieran tener una devoción personal con Dios por medio del canto.</p>',
                     '<p>De parte de los desarrolladores les enviamos un fraternal saludo esperando que esta app sea de gran bendición.</p>'
                 ].join('')

@@ -11,12 +11,9 @@ Ext.define('Hymnal.controller.Config',{
 
     config		: {
 		refs	: {
-			configForm	: {
-				selector:'configurations'
-			},
-			hymn : {
-				selector : 'songview'
-			}
+			configForm	 : 'configurations',
+			hymn         : 'songview',
+            slider       : 'main'
 		},
 		control		: {
 			'configurations' : {
@@ -43,7 +40,7 @@ Ext.define('Hymnal.controller.Config',{
 				font:{
 					size:Hymnal.Config.FONT_SIZE,max:Hymnal.Config.MAX_FONT_SIZE
 				},
-				background:'bg-white',
+				background:'theme-light',
                 track: 'voice'
 			};
 			localStorage.setItem('hymnal-config',Ext.encode(config));
@@ -69,6 +66,7 @@ Ext.define('Hymnal.controller.Config',{
 			config.font.size = value;
     	} else if (comp.isXType('selectfield')){
     		config.background = value;
+            this.getSlider().fireEvent('preferences',config);
     	}else {
             if (comp.isChecked()) {
                 config.track = comp.getValue();

@@ -22,16 +22,22 @@ Ext.define('Hymnal.controller.Main',{
             'player' : {
                 previous : 'loadPreviousSong',
                 next     : 'loadNextSong'
+            },
+            'main'   : {
+                preferences  : 'setPreferences'
             }
         }
 	},
 
 	init  	: function() {
         var favs = Ext.create('Hymnal.store.Favorites',{
-            id : 'Favorites'
-        });
+                id : 'Favorites'
+            });
 
         favs.load();
+
+        this.preferences = Ext.decode(localStorage.getItem('hymnal-config') || '{}');
+        console.log(this.preferences);
 	},
 
     loadPreviousSong : function(current){
@@ -71,6 +77,14 @@ Ext.define('Hymnal.controller.Main',{
                 SongsController.showSong(this.getView(),current,null,model);
             }
         }
+    },
+
+    setPreferences  : function(preferences){
+        console.log(arguments);
+        preferences = preferences || this.preferences
+        console.log(preferences);
+        Ext.getBody().removeCls('theme-light theme-dark theme-sepia');
+        Ext.getBody().addCls(preferences.background);
     }
 	
 });

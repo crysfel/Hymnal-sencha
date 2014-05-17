@@ -21,3 +21,21 @@
 .list-panel{
 	background-color:#fff;
 }
+
+
+
+
+.theme-dark{
+	.x-layout-card-item{
+		background-color:$dark-card-bg-color;
+	}
+	.custom-panel{
+		background-color:$dark-view-bg-color;
+		h3,h2{
+			color:$dark-list-font-color;
+		}
+		p{
+			color:$dark-list-font-small-color;
+		}
+	}
+}

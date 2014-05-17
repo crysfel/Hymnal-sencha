@@ -23,3 +23,9 @@
         @include box-shadow(none);
     }
 }
+
+.theme-dark{
+    .x-slidenavigation-list{
+        background-color:$dark-sidebar-bg-color;
+    }
+}

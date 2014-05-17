@@ -39,5 +39,13 @@ Ext.define("Hymnal.view.Main", {
             xtype   : 'configurations',
             title   : '<span class="icon-cog image-font"></span>'
         }]
+    },
+
+    initialize      : function(){
+        this.callParent(arguments);
+
+        this.on('painted',function(){
+            this.fireEvent('preferences',false);
+        },this);
     }
 });

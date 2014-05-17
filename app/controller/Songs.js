@@ -112,8 +112,6 @@ Ext.define('Hymnal.controller.Songs', {
         }
 
         cmp.bodyElement.setStyle('font-size',(config.font.max * config.font.size/100)+'px');
-        cmp.bodyElement.removeCls('bg-white bg-black bg-sepia');
-        cmp.bodyElement.addCls(config.background);
 
         if (config.track == 'music') {
             player.setVoice(false);

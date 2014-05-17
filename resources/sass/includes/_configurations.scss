@@ -8,8 +8,8 @@
     }
 
     .x-form-label {
-        color: $gray-text;
-        text-shadow: rgba(255,255,255,0.25) 0 0.08em 0;
+        color:$dark-list-font-small-color;
+        // text-shadow: rgba(255,255,255,0.25) 0 0.08em 0;
         padding: 0.6em;
 
         span{
@@ -135,5 +135,15 @@
         border: none;
         padding: 5px 15px;
         margin: 0 10px;
+    }
+}
+
+.theme-dark{
+    .x-picker{
+        background-color: $dark-selector-bg-color;
+    }
+    .configurations .x-input-el{
+        background-color:$dark-input-bg-color;
+        color:#fff;
     }
 }

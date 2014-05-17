@@ -16,6 +16,9 @@ Ext.define('Hymnal.view.Favorites', {
         cls         : 'favorites-view',
         tpl         : [
             '<div class="custom-panel">',
+            '<tpl if="favorites.length == 0">',
+            '<p>Aquí se guardan tus himnos favoritos, para guardar uno simplemente presiona el ícono <i class="icon-heart-empty"></i> en el himno que quieras guardar.</p>',
+            '</tpl>',
             '<tpl for="favorites">',
                 '<div class="favorite" data-id="{data.num}">',
                     '<span class="icon-play-circled action-button"></span>',

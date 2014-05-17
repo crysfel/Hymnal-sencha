@@ -3,3 +3,4 @@ resources/sass/.sass-cache/*.*
 archive/resources/css/app.css/
 build/
 archive/app.js/
+.DS_Store

@@ -37,7 +37,6 @@ Ext.define('Hymnal.controller.Main',{
         favs.load();
 
         this.preferences = Ext.decode(localStorage.getItem('hymnal-config') || '{}');
-        console.log(this.preferences);
 	},
 
     loadPreviousSong : function(current){
@@ -80,9 +79,8 @@ Ext.define('Hymnal.controller.Main',{
     },
 
     setPreferences  : function(preferences){
-        console.log(arguments);
         preferences = preferences || this.preferences
-        console.log(preferences);
+
         Ext.getBody().removeCls('theme-light theme-dark theme-orange theme-blue');
         Ext.getBody().addCls(preferences.background);
     }

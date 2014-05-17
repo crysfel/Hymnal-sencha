@@ -34,47 +34,32 @@ Ext.define('Hymnal.controller.Songs', {
     },
 
     loadSongs : function(){
-       var me = this,
-            data = localStorage.getItem('hymns-'+me.getPage());
+        var me = this,
+            hymns = localStorage.getItem('hymns');
 
-        if(!data){
-            Ext.Ajax.request({
+        if(!hymns){
+            Ext.util.JSONP.request({
                 url         : Hymnal.Config.LYRICS_URL,
-                method      : 'GET',
-                params      : {
-                    start   : me.getPage() * Hymnal.Config.PAGE_SIZE,
-                    limit   : Hymnal.Config.PAGE_SIZE,
-                },
                 success     : me.saveData,
                 scope       : me
             });
         }else{
-            me.importDataToStore(Ext.decode(data));
+            me.importDataToStore(Ext.decode(hymns));
         }
     },
 
-    saveData : function(response,options){
-        var data = Ext.decode(response.responseText);
-
-        localStorage.setItem('hymns-' + this.getPage(), Ext.encode(data));
-        localStorage.setItem('latest-version',data.version);
+    saveData : function(hymns,options){
+        localStorage.setItem('hymns', Ext.encode(hymns));
+        localStorage.setItem('latest-version',hymns.version);
         localStorage.setItem('latest-update',Ext.Date.format(new Date(),'Y-m-d H:i:s'));
 
-        this.importDataToStore(data);
+        this.importDataToStore(hymns);
     },
 
-    importDataToStore : function(data){
-        var me = this,
-            last = data.songs[data.songs.length-1];
+    importDataToStore : function(hymns){
+        var me = this;
         
-        me.setPage(this.getPage() + 1);
-        if(last.id < data.total){
-            // setTimeout(function(){
-            //     me.loadSongs();
-            // },Hymnal.Config.TIMEOUT);
-        }
-        
-        me.getList().getStore().add(data.songs);
+        me.getList().getStore().add(hymns.data);
     },
 
     searchSongs : function(field){

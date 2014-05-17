@@ -57,8 +57,8 @@ Ext.application({
 
     onUpdated: function() {
         Ext.Msg.confirm(
-            "Applicación actualizada",
-            "Esta aplicación se ha actualizado satisfactoriamente a la versión más reciente. ¿Deseas reiniciarla ahora?",
+            "Applicaci√≥n actualizada",
+            "Esta aplicaci√≥n se ha actualizado satisfactoriamente a la versi√≥n m√°s reciente. ¬øDeseas reiniciarla ahora?",
             function(buttonId) {
                 if (buttonId === 'yes') {
                     localStorage.removeItem('hymns');

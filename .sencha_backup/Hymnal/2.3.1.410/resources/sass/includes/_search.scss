@@ -1,0 +1,71 @@
+.x-field-search{
+    background-color:#fff;
+    @include border-radius(13px); 
+    padding:3px 5px;
+    .x-input-search{
+        border: none;
+        background-color: transparent;
+    }
+
+    .x-clear-icon{
+        background-color:transparent;
+        width: 0;
+        height: 0;
+        color:#000;
+        top: 0;
+        right: 20px;
+    }
+}
+
+.x-list .x-list-item{
+    height:55px;
+}
+
+.hymn-list .x-list-item{
+    background-color:$list-bg;
+}
+
+.hymn-title{
+    color:$black;
+	font-weight:bold;
+    font-size: 18px;
+    height:23px;
+    overflow: hidden;
+}
+.hymn-description{
+	font-size:0.80em;
+	color:#666;
+}
+.x-list-emptytext .x-innerhtml {
+	padding:20px;
+}
+
+
+
+.theme-dark{
+    .hymn-list .x-list-item{
+        background-color:$dark-list-bg-color;
+
+        .hymn-title{
+            color:$dark-list-font-color;
+            font-weight:normal;
+        }
+        .hymn-description{
+            color:$dark-list-font-small-color;
+        }
+    }
+}
+
+.theme-orange{
+    // .hymn-list .x-list-item{
+    //     background-color:$orange-list-bg-color;
+
+    //     .hymn-title{
+    //         color:$orange-list-font-color;
+    //         font-weight:normal;
+    //     }
+    //     .hymn-description{
+    //         color:$orange-list-font-small-color;
+    //     }
+    // }
+}

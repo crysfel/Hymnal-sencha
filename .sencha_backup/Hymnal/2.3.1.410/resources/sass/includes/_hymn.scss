@@ -1,0 +1,60 @@
+.hymn-view .custom-panel{
+	h3{
+		font-weight:bold;
+		font-size:1.3em;
+		text-align:center;
+		margin:10px 0;
+	}
+	p{
+		font-size:1em;
+		line-height: 1.3em;
+		white-space:pre-wrap;
+		padding-bottom: 80px;
+		margin:10px;
+	}
+}
+
+.hymnal-song-playing{
+	color:$green;
+}
+
+.list-panel{
+	background-color:#fff;
+}
+
+
+
+
+.theme-dark{
+	.x-layout-card-item{
+		background-color:$dark-card-bg-color;
+	}
+	.custom-panel{
+		background-color:$dark-view-bg-color;
+		h3,h2{
+			color:$dark-list-font-color;
+		}
+		p{
+			color:$dark-list-font-small-color;
+		}
+	}
+}
+
+.theme-orange{
+
+	.hymnal-song-playing{
+		color:$orange-red;
+	}
+	// .x-layout-card-item{
+	// 	background-color:$orange-card-bg-color;
+	// }
+	// .custom-panel{
+	// 	background-color:$orange-view-bg-color;
+	// 	h3,h2{
+	// 		color:$orange-list-font-color;
+	// 	}
+	// 	p{
+	// 		color:$orange-list-font-small-color;
+	// 	}
+	// }
+}

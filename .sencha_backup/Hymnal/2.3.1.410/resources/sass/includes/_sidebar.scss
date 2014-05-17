@@ -1,0 +1,41 @@
+.x-slidenavigation{
+
+    .x-slidenavigation-list{
+        background-color:$blue;
+        color:#fff;
+
+        .x-list-item{
+            font-size:1.5em;
+        }
+
+        .x-list-item.x-item-selected.x-list-item-tpl{
+            background-color:transparent;
+            color:$green;
+        }
+    }
+
+    .x-slidenavigation-container{
+        background-color:#fff;
+    }
+
+    .x-slidenavigation-container.open,
+    .x-slidenavigation-container.x-dragging{
+        @include box-shadow(none);
+    }
+}
+
+.theme-dark{
+    .x-slidenavigation-list{
+        background-color:$dark-sidebar-bg-color;
+    }
+}
+
+.theme-orange{
+    .x-slidenavigation-list{
+        background-color:$orange-sidebar-bg-color;
+
+        .x-list-item.x-item-selected.x-list-item-tpl{
+            color:$orange-sidebar-bg-selection-color;
+        }
+    }
+}

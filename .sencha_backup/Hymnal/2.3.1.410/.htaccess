@@ -1,6 +1,0 @@
-<Files appcache.manifest>
-	ExpiresActive On
-	ExpiresDefault "access"
-</Files>
-
-AddType text/cache-manifest .manifest

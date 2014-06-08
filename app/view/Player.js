@@ -154,10 +154,10 @@ Ext.define('Hymnal.view.Player',{
 
     confirm : function(){
         if(!navigator.onLine){
-            Ext.Msg.alert('Sin conexión','Lo sentimos pero para poder escuchar la música es necesario tener conexión a internet.');
+            Ext.Msg.alert('Sin conexión','Lo sentimos para poder escuchar la música es necesario tener conexión a internet.');
             return;
         }else if(!this.getConfirmation()){
-            Ext.Msg.confirm('Confirmación','La música utilizará tu conexión a internet, esto podría ocacionarte cargos adicionales.',function(btn){
+            Ext.Msg.confirm('Confirmación','La música utilizará tu conexión a internet, esto podría ocasionarte cargos adicionales.',function(btn){
                 if(btn === 'yes'){
                     this.setConfirmation(true);
                     this.showPlayer();

@@ -24,6 +24,7 @@ Ext.define('Hymnal.view.Configurations',{
             xtype : 'container',
             layout: 'auto',
             cls   : 'configurations',
+            scrollable : 'vertical',
             items : [{
                 xtype   : 'fieldset',
                 defaults: {labelWidth:'50%'},
@@ -42,7 +43,7 @@ Ext.define('Hymnal.view.Configurations',{
                     name : 'background',
                     options: [
                         {text: 'Claro',  value: 'theme-light'},
-                        {text: 'Obscuro', value: 'theme-dark'},
+                        {text: 'Oscuro', value: 'theme-dark'},
                         {text: 'Naranja',  value: 'theme-orange'}
                         // {text: 'Azul',  value: 'theme-blue'}
                     ]

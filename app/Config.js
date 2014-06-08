@@ -13,7 +13,7 @@ Ext.define('Hymnal.Config', {
     TRACKS_URL   : 'https://s3.amazonaws.com/hymnal/music/voice/',
     VOICE_URL    : 'http://ia700708.us.archive.org/0/items/HimnarioAdventista/',
 
-    FONT_SIZE    : Ext.os.deviceType.toLowerCase()==='tablet'?50:40,
+    FONT_SIZE    : 40,
     MAX_FONT_SIZE: 50
 
 });

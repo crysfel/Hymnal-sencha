@@ -1,0 +1,23 @@
+.x-msgbox-dark{
+    background-color: $blue;
+    border: none;
+    @include border-radius(5px);
+    color: #fff;
+
+    .x-msgbox-title{
+        margin-bottom: 15px;
+    }
+
+    .x-msgbox-text{
+        margin-bottom: 10px;
+        line-height: 22px;
+    }
+
+    .x-button{
+        background-color:$green;
+        border: none;
+        margin: 0 10px;
+        @include border-radius(5px);
+        padding: 5px;
+    }
+}

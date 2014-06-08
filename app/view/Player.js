@@ -18,6 +18,7 @@ Ext.define('Hymnal.view.Player',{
 
     config		: {
         song    : null,
+        confirmation : false, //confirm to use internet conexion
         current : null,
         timeout : 10000,
         voice   : true,
@@ -111,7 +112,7 @@ Ext.define('Hymnal.view.Player',{
         if(this.audio.isPlaying()){
             this.pause();
         }else{
-            this.play();
+            this.confirm();
         }
     },
 
@@ -149,6 +150,22 @@ Ext.define('Hymnal.view.Player',{
 
         this.playPauseEl.removeCls('icon-play-circled');
         this.playPauseEl.addCls('icon-pause-circled');
+    },
+
+    confirm : function(){
+        if(!navigator.onLine){
+            Ext.Msg.alert('Sin conexión','Lo sentimos pero para poder escuchar la música es necesario tener conexión a internet.');
+            return;
+        }else if(!this.getConfirmation()){
+            Ext.Msg.confirm('Confirmación','La música utilizará tu conexión a internet, esto podría ocacionarte cargos adicionales.',function(btn){
+                if(btn === 'yes'){
+                    this.setConfirmation(true);
+                    this.play();
+                }
+            },this);
+        }else{
+            this.play();
+        }
     },
 
     pause : function(){

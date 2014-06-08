@@ -53,7 +53,7 @@ Ext.define('Hymnal.view.SongView',{
             data = {
                 id          : model.get('id'),
                 favorite    : favs.find('num',model.get('id')) === -1,
-                nowPlaying  : !!this.player.getSong()
+                nowPlaying  : this.player.isPlaying()
             };
 
         data.nowPlaying = data.nowPlaying && this.player.getSong().id === model.get('id');

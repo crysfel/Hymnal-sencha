@@ -149,7 +149,6 @@ Ext.define('Hymnal.controller.Songs', {
         var player = this.getPlayer();
 
         player.setSong(model.getData());
-        player.play();
-        player.showPlayer();
+        player.confirm();
     }
 });

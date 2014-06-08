@@ -160,10 +160,12 @@ Ext.define('Hymnal.view.Player',{
             Ext.Msg.confirm('Confirmación','La música utilizará tu conexión a internet, esto podría ocacionarte cargos adicionales.',function(btn){
                 if(btn === 'yes'){
                     this.setConfirmation(true);
+                    this.showPlayer();
                     this.play();
                 }
             },this);
         }else{
+            this.showPlayer();
             this.play();
         }
     },

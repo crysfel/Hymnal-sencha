@@ -139,7 +139,12 @@ Ext.define('Hymnal.view.Player',{
         if(!this.getVoice()){
             url = Hymnal.Config.TRACKS_URL
         }
-        this.audio.setUrl(url + num + '.mp3');
+
+        if(url + num + '.mp3' !== this.audio.getUrl()){
+            this.audio.setUrl(url + num + '.mp3');
+            this.showLoading();
+            this.loading = true;
+        }
         this.audio.play();
 
         this.playPauseEl.removeCls('icon-play-circled');
@@ -155,7 +160,12 @@ Ext.define('Hymnal.view.Player',{
 
     updateTimeline : function(audio,time){
         var width = 100*time/audio.getDuration();
+
         this.timelineEl.setStyle('width',width+'%');
+        if(this.loading && time > 0){
+            this.setTitle(this.getSong());
+            this.loading = false;
+        }
     },
 
     isPlaying : function(){
@@ -195,6 +205,10 @@ Ext.define('Hymnal.view.Player',{
 
         me.knobEl.setStyle('display','block');
         me.element.setStyle('bottom',bottom);
+    },
+
+    showLoading : function(){
+        this.titleEl.setHtml('<i class="icon-spin5 animate-spin"></i> Cargando...');
     },
 
     destroy : function(){

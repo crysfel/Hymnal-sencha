@@ -21,3 +21,22 @@
         padding: 5px;
     }
 }
+
+.theme-dark{
+    .x-msgbox-dark{
+        background-color: $dark-card-bg-color;
+        .x-toolbar-dark{
+            background-color: $dark-card-bg-color;
+        }
+    }
+}
+
+.theme-orange{
+    .x-msgbox-dark{
+        background-color: $orange-toolbar-bg-color;
+
+        .x-button{
+            background-color:$orange-player-bg-color;
+        }
+    }
+}

@@ -24,7 +24,10 @@ Ext.define('Hymnal.controller.Main',{
                 next     : 'loadNextSong'
             },
             'main'   : {
-                preferences  : 'setPreferences'
+                preferences  : 'setPreferences',
+            },
+            'main main-menu' : {
+                itemtap : 'showView'
             }
         }
 	},
@@ -83,6 +86,14 @@ Ext.define('Hymnal.controller.Main',{
 
         Ext.getBody().removeCls('theme-light theme-dark theme-orange theme-blue');
         Ext.getBody().addCls(preferences.background);
+    },
+
+    showView : function(xtype){
+        var card = this.getSlider().down(xtype);
+
+        if(card){console.log(card);
+            this.getSlider().setActiveItem(card);
+        }
     }
 	
 });

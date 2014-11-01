@@ -14,7 +14,11 @@ Ext.define('Hymnal.view.Card', {
     },
 
     constructor : function(){
-        var tpl = ['<span class="icon-menu toggleMenu"></span>'];
+        var tpl = [];
+
+        if(Ext.os.is('Phone')){
+            tpl = ['<span class="icon-menu toggleMenu"></span>'];
+        }
 
         this.actions = {'toggleMenu': true};
         if(this.config.toolbar){

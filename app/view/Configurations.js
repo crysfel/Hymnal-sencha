@@ -22,7 +22,7 @@ Ext.define('Hymnal.view.Configurations',{
         ],
 		items	: [{
             xtype : 'container',
-            layout: 'auto',
+            // layout: 'auto',
             cls   : 'configurations',
             scrollable : 'vertical',
             items : [{

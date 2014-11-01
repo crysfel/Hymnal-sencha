@@ -30,12 +30,6 @@ Ext.define('Hymnal.view.SongView',{
         items : []
     },
 
-    initialize : function(){
-        this.callParent(arguments);
-
-        this.player = Ext.ComponentQuery.query('player')[0];
-    },
-
     setSong	: function(model){
 		var me = this;
         
@@ -49,6 +43,10 @@ Ext.define('Hymnal.view.SongView',{
     },
 
     renderTitle   : function(model){
+        if(!this.player){
+            this.player = Ext.ComponentQuery.query('player')[0];
+        }
+        
         var favs = Ext.StoreMgr.lookup('Favorites'),
             data = {
                 id          : model.get('id'),

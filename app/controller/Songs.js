@@ -14,7 +14,8 @@ Ext.define('Hymnal.controller.Songs', {
             list : 'songlist list',
             view : 'songview',
             title: 'songview #titlebar',
-            player : 'player'
+            player : 'player',
+            menu   : 'main main-menu'
         },
         control : {
             'songlist list' : {
@@ -93,7 +94,11 @@ Ext.define('Hymnal.controller.Songs', {
                 this.getView().setSong(model);
             }
         }else{
-            this.getHome().list.select(1); //need to find a better way to select a different view 
+            if(Ext.os.is('Phone')){
+                this.getHome().list.select(1); //need to find a better way to select a different view 
+            }else{
+                this.getMenu().select('songview');
+            }
             this.getView().setSong(model);
         }
 
@@ -140,7 +145,7 @@ Ext.define('Hymnal.controller.Songs', {
     },
 
     hidePlayer : function(){
-        if(!this.getPlayer().isPlaying()){
+        if(this.getPlayer() && !this.getPlayer().isPlaying()){
             this.getPlayer().hide(true);
         }
     },

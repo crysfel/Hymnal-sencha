@@ -18,7 +18,7 @@ Ext.define('Hymnal.view.SongList',{
     config		: {
 		layout		: 'card',
         toolbar     : [
-            {title:'Himnario Adventista'},
+            {title:Ext.os.is('Phone')?'Himnario Adventista':'Indice'},
             {icon:'icon-search',fn:'showSearch'}
         ],
 		items		: [{

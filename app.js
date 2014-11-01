@@ -22,8 +22,9 @@ Ext.application({
         'Hymnal.view.Player'
     ],
 
-    views       : ['Main'],
+    views       : [],
     controllers : ['Main','Songs','Config','Favorites'],
+    profiles: ['Phone','Tablet'],
 
     icon: {
         '57': 'resources/icons/Icon.png',
@@ -47,8 +48,7 @@ Ext.application({
         // Destroy the #appLoadingIndicator element
         Ext.fly('appLoadingIndicator').destroy();
 
-        // Initialize the main view
-        Ext.Viewport.add(Ext.create('Hymnal.view.Main'));
+        // Initialize the player
         Ext.create('Hymnal.view.Player',{
             hidden   : true,
             renderTo : Ext.getBody()

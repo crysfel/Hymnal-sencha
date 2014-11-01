@@ -8,7 +8,8 @@
 Ext.define('Hymnal.store.Favorites', {
     extend: 'Ext.data.Store',
     requires : [
-        'Ext.data.proxy.LocalStorage'
+        'Ext.data.proxy.LocalStorage',
+        'Hymnal.model.Song'
     ],
 
     config: {

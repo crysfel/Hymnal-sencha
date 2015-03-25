@@ -12,11 +12,11 @@ Ext.define('Hymnal.view.tablet.Menu', {
     config: {
         cls     : 'main-menu-tablet',
         html    : [
-            '<h1>Himnario Adventista</h1>',
-            '<div class="menu-item active-item" data-id="songlist"><span class="icon-search image-font"></span> Indice</div>',
-            '<div class="menu-item" data-id="songview"><span class="icon-book image-font"></span> Himnos</div>',
-            '<div class="menu-item" data-id="favorites"><span class="icon-heart image-font"></span> Favoritos</div>',
-            '<div class="menu-item" data-id="configurations"><span class="icon-cog image-font"></span> Configuraciones</div>'
+            '<h1>H</h1>',
+            '<div class="menu-item active-item" data-id="songlist"><span class="icon-search image-font"></span></div>',
+            '<div class="menu-item" data-id="songview"><span class="icon-book image-font"></span></div>',
+            '<div class="menu-item" data-id="favorites"><span class="icon-heart image-font"></span></div>',
+            '<div class="menu-item" data-id="configurations"><span class="icon-cog image-font"></span></div>'
         ].join('')
     },
 

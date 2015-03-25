@@ -2,7 +2,6 @@ Ext.define("Hymnal.view.tablet.Main", {
     extend: 'Ext.Container',
     requires: [
         'Ext.TitleBar',
-        'Ext.util.JSONP',
         'Hymnal.view.SongList',
         'Hymnal.view.SongView',
         'Hymnal.view.Favorites',
@@ -13,7 +12,8 @@ Ext.define("Hymnal.view.tablet.Main", {
     
     config: {
         layout      : 'card',
-        items           : [{
+        cls         : 'tablet-styles',
+        items       : [{
             xtype   : 'container',
             docked  : 'left',
             cls     : 'main-menu-container',

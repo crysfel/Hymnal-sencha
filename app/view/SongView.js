@@ -26,7 +26,11 @@ Ext.define('Hymnal.view.SongView',{
 			direction     : 'vertical',
 			directionLock : true
 		},
-		tpl   : '<div class="custom-panel"><h3>{title}</h3><p>{content}</p></div>',
+		tpl   : [
+            '<div class="icon-left-open image-font"></div>',
+            '<div class="icon-right-open image-font"></div>',
+            '<div class="custom-panel"><h3>{title}</h3><p>{content}</p></div>'
+        ].join(''),
         items : []
     },
 

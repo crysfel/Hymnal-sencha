@@ -1,0 +1,21 @@
+
+.main-menu-container{
+    background-color: $blue;  
+
+    .main-menu-tablet{
+        padding: 20px;
+        color: #fff;
+
+        h1{
+            padding-bottom:20px;
+            font-weight: bold;
+        }
+        .menu-item{
+            padding:12px 0;
+        }
+
+        .active-item{
+            color:$green;
+        }
+    }
+}

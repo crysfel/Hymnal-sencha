@@ -36,26 +36,17 @@ Ext.define('Hymnal.controller.Songs', {
     },
 
     loadSongs : function(){
-        var me = this,
-            hymns = localStorage.getItem('hymns');
+        var me = this
 
-        if(!hymns){
-            Ext.util.JSONP.request({
-                url         : Hymnal.Config.LYRICS_URL,
-                success     : me.saveData,
-                scope       : me
-            });
-        }else{
-            me.importDataToStore(Ext.decode(hymns));
-        }
-    },
-
-    saveData : function(hymns,options){
-        localStorage.setItem('hymns', Ext.encode(hymns));
-        localStorage.setItem('latest-version',hymns.version);
-        localStorage.setItem('latest-update',Ext.Date.format(new Date(),'Y-m-d H:i:s'));
-
-        this.importDataToStore(hymns);
+        Ext.Ajax.request({
+            url         : Hymnal.Config.LYRICS_URL,
+            success     : function(response){
+                var hymns = Ext.decode(response.responseText);
+                me.importDataToStore(hymns);
+            },
+            scope       : me
+        });
+        
     },
 
     importDataToStore : function(hymns){

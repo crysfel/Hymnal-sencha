@@ -5,7 +5,7 @@
 Ext.define('Hymnal.Config', {
     singleton   : true,
 
-    LYRICS_URL   : 'http://demos.bleext.com/hymnal/index.php/hymnal/findAll',
+    LYRICS_URL   : 'data/hymns.json',
     VERSION_URL  : 'http://demos.bleext.com/hymnal/index.php/hymnal/latestVersion',
     TIMEOUT      : 1000, //Time to wait for the next page
     PAGE_SIZE    : 50,

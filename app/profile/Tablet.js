@@ -7,7 +7,7 @@ Ext.define('Hymnal.profile.Tablet', {
     },
 
     isActive: function() {
-        return true;//Ext.os.is('Tablet');
+        return false;//Ext.os.is('Tablet');
     },
 
     launch: function() {

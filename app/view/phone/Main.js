@@ -5,6 +5,7 @@ Ext.define("Hymnal.view.phone.Main", {
         'Ext.util.JSONP',
         'Hymnal.view.SongList',
         'Hymnal.view.SongView',
+        'Hymnal.view.Blog',
         'Hymnal.view.Favorites',
         'Hymnal.view.Configurations'
     ],
@@ -32,6 +33,9 @@ Ext.define("Hymnal.view.phone.Main", {
         },{
             xtype   : 'songview',
             title   : '<span class="icon-book image-font"></span>'
+        },{
+            xtype   : 'blog',
+            title   : '<span class="icon-doc image-font"></span>'
         },{
             xtype   : 'favorites',
             title   : '<span class="icon-heart image-font"></span>'

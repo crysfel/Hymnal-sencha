@@ -13,6 +13,8 @@ Ext.define('Hymnal.Config', {
     TRACKS_URL   : 'https://s3.amazonaws.com/hymnal/music/voice/',
     VOICE_URL    : 'http://ia700708.us.archive.org/0/items/HimnarioAdventista/',
 
+    BLOG_URL     : 'http://localhost:3000/api/blog',
+
     FONT_SIZE    : 40,
     MAX_FONT_SIZE: 50
 

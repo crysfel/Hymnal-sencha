@@ -1,0 +1,36 @@
+
+.blog{
+
+    .x-list .x-list-item{
+        height:auto;
+    }
+    .custom-panel{
+        padding: 0;
+        margin: 8px;
+        overflow:hidden;
+
+        .image-cover{
+            background: no-repeat center center;
+            background-size: cover;
+            height: 120px
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            padding-top: 25px;
+            height: 0;
+
+            iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .custom-panel-detail{
+            padding: 10px 15px;
+        }
+    }
+}

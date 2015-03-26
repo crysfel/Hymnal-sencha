@@ -19,7 +19,8 @@ Ext.application({
     requires: [
         'Ext.MessageBox',
         'Hymnal.Config',
-        'Hymnal.view.Player'
+        'Hymnal.view.Player',
+        'Hymnal.overrides.Ajax'
     ],
 
     views       : [],

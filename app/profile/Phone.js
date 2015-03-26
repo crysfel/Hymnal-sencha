@@ -7,7 +7,7 @@ Ext.define('Hymnal.profile.Phone', {
     },
 
     isActive: function() {
-        return false;//Ext.os.is('Phone');
+        return true;//Ext.os.is('Phone');
     },
 
     launch: function() {

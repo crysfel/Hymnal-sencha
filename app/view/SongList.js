@@ -17,6 +17,7 @@ Ext.define('Hymnal.view.SongList',{
 
     config		: {
 		layout		: 'card',
+        cls         : 'song-list',
         toolbar     : [
             {title:Ext.os.is('Phone')?'Himnario Adventista':'Indice'},
             {icon:'icon-search',fn:'showSearch'}
@@ -33,19 +34,16 @@ Ext.define('Hymnal.view.SongList',{
 				placeHolder	: 'Busque por palabras o número'
 			}]
 		},{
-			// xtype : 'container',
-   //          items : [{
-                xtype       : 'list',
-                cls         : 'hymn-list',
-                itemTpl     : '<h2 class="hymn-title">{title}</h2><p class="hymn-description"><span class="hymn-number">{id}</span> {preview}...</p>',
-                disableSelection : true,
-                emptyText   : 'No se encontraron himnos con esas palabras o número!',
-                infinite    : true,
-                variableHeights: true,
-                store       : {
-                    type    : 'songs'
-                }
-            // }]
+            xtype       : 'list',
+            cls         : 'hymn-list',
+            itemTpl     : '<h2 class="hymn-title">{title}</h2><p class="hymn-description"><span class="hymn-number">{id}</span> {preview}...</p>',
+            disableSelection : true,
+            emptyText   : 'No se encontraron himnos con esas palabras o número!',
+            infinite    : true,
+            variableHeights: true,
+            store       : {
+                type    : 'songs'
+            }
 		}]
     },
 

@@ -26,11 +26,17 @@ Ext.define('Hymnal.view.SongView',{
 			direction     : 'vertical',
 			directionLock : true
 		},
-		tpl   : [
-            '<div class="icon-left-open image-font"></div>',
-            '<div class="icon-right-open image-font"></div>',
+		tpl   : new Ext.XTemplate(
+            '<tpl if="this.isTablet()">',
+                '<div class="icon-left-open image-font"></div>',
+                '<div class="icon-right-open image-font"></div>',
+            '</tpl>',
             '<div class="custom-panel"><h3>{title}</h3><p>{content}</p></div>'
-        ].join(''),
+        ,{
+            isTablet : function(){
+                return Ext.os.is('Tablet');
+            }
+        }),
         items : []
     },
 

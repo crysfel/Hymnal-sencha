@@ -27,14 +27,14 @@ Ext.define('Hymnal.view.SongView',{
 			directionLock : true
 		},
 		tpl   : new Ext.XTemplate(
-            '<tpl if="this.isTablet()">',
+            '<tpl if="!this.isPhone()">',
                 '<div class="icon-left-open image-font"></div>',
                 '<div class="icon-right-open image-font"></div>',
             '</tpl>',
             '<div class="custom-panel"><h3>{title}</h3><p>{content}</p></div>'
         ,{
-            isTablet : function(){
-                return Ext.os.is('Tablet');
+            isPhone : function(){
+                return Ext.os.is('Phone');
             }
         }),
         items : []

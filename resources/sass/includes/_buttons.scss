@@ -1,0 +1,16 @@
+.btn{
+    @include border-radius(3px);
+      padding: 12px;
+      color: #fff;
+      text-align: center;
+}
+
+.btn-default{
+    background-color: $green;
+}
+
+.theme-orange{
+   .btn-default{
+        background-color: $orange-selector-btn-bg-color;
+    } 
+}

@@ -24,7 +24,7 @@ Ext.application({
     ],
 
     views       : [],
-    controllers : ['Main','Songs','Config','Favorites'],
+    controllers : ['Main','Songs','Config','Favorites','Blog'],
     profiles: ['Phone','Tablet'],
 
     icon: {

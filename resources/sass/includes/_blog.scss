@@ -31,6 +31,31 @@
         }
         .custom-panel-detail{
             padding: 10px 15px;
+
+            h2{
+                font-size: 18px;
+                color: #111;
+                font-weight: bold;
+            }
+
+            .blog-meta{
+                font-size:14px;
+                margin:0;
+                em{
+                    font-style: oblique;
+                }
+            }
+
+            p{
+                line-height: 20px;
+            }
         }
+    }
+}
+
+
+.blog-post{
+    img{
+        width:90%;
     }
 }

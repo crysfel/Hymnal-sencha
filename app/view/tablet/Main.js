@@ -23,6 +23,8 @@ Ext.define("Hymnal.view.tablet.Main", {
         },{
             xtype   : 'songview'
         },{
+            xtype   : 'blog'
+        },{
             xtype   : 'favorites'
         },{
             xtype   : 'configurations'

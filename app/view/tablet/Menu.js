@@ -15,6 +15,7 @@ Ext.define('Hymnal.view.tablet.Menu', {
             '<h1>&nbsp;</h1>',
             '<div class="menu-item active-item" data-id="songlist"><span class="icon-search image-font"></span></div>',
             '<div class="menu-item" data-id="songview"><span class="icon-book image-font"></span></div>',
+            '<div class="menu-item" data-id="blog"><span class="icon-doc image-font"></span></div>',
             '<div class="menu-item" data-id="favorites"><span class="icon-heart image-font"></span></div>',
             '<div class="menu-item" data-id="configurations"><span class="icon-cog image-font"></span></div>'
         ].join('')

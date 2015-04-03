@@ -12,6 +12,7 @@ Ext.define('Hymnal.view.Blog', {
     xtype   : 'blog',
 
     config  : {
+        layout      : 'card',
         cls         : 'blog',
         toolbar     : [
             {title:'Blog'}

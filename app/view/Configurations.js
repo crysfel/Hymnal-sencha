@@ -34,7 +34,7 @@ Ext.define('Hymnal.view.Configurations',{
                     label   : 'Tamaño fuente',
                     minValue: 20,
                     maxValue: 100,
-                    value   : 40,
+                    value   : Ext.os.is('Phone')?30:40,
                     stepValue: 10,
                     name    : 'fontSize'
                 },{
@@ -58,14 +58,6 @@ Ext.define('Hymnal.view.Configurations',{
                     value: 'music',
                     label: 'Tocar Pista'
                 }]
-            },{
-                xtype: 'component',
-                cls  : 'custom-panel',
-                html : [
-                    '<h3>Sobre esta app</h3>',
-                    '<p>Esta app ha sido desarrollada para el beneficio de todos aquellos que quieran tener una devoción personal con Dios por medio del canto.</p>',
-                    '<p>De parte de los desarrolladores les enviamos un fraternal saludo esperando que esta app sea de gran bendición.</p>'
-                ].join('')
             }]     
         }]
     }

@@ -18,6 +18,7 @@ Ext.define('Hymnal.controller.Blog',{
         },
         control : {
             'blog list' : {
+                activate: 'onShowView',
                 itemtap : 'showPost'
             }
         }
@@ -30,6 +31,13 @@ Ext.define('Hymnal.controller.Blog',{
 
         me.getList().hide();
         me.getView().show();
+    },
+
+    onShowView  : function(){
+        if(!navigator.onLine){
+            Ext.Msg.alert('Sin conexión','Para poder ver el contenido es necesario tener acceso a internet.');
+            return;
+        }
     }
     
 });

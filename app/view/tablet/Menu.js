@@ -12,7 +12,7 @@ Ext.define('Hymnal.view.tablet.Menu', {
     config: {
         cls     : 'main-menu-tablet',
         html    : [
-            '<h1>&nbsp;</h1>',
+            '<img src="resources/images/logo.png" class="app-logo">',
             '<div class="menu-item active-item" data-id="songlist"><span class="icon-search image-font"></span></div>',
             '<div class="menu-item" data-id="songview"><span class="icon-book image-font"></span></div>',
             '<div class="menu-item" data-id="blog"><span class="icon-doc image-font"></span></div>',

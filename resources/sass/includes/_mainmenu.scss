@@ -3,7 +3,7 @@
     background-color: $blue;  
 
     .main-menu-tablet{
-        padding: 20px;
+        padding: 5px;
         color: #fff;
 
         h1{
@@ -11,11 +11,15 @@
             font-weight: bold;
         }
         .menu-item{
-            padding:12px 0;
+            padding: 12px 5px;
         }
 
         .active-item{
             color:$green;
         }
     }
+}
+
+.main-menu-container .main-menu-tablet > .x-innerhtml{
+    text-align: center;
 }

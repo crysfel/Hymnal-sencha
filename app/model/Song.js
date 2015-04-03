@@ -22,7 +22,8 @@ Ext.define('Hymnal.model.Song',{
 			'content',
             {name:'preview',mapping:'content',convert:function(v,record){
                     if(record.get('content')){
-                        var str = record.get('content').substring(0,30);
+                        var limit = Ext.os.is('Phone')? 30:100,
+                            str = record.get('content').substring(0,limit);
                         return str.replace(regexp,'');
                     }
                 }

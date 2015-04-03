@@ -18,7 +18,7 @@ Ext.define('Hymnal.view.Blog', {
             {title:'Blog'}
         ],
         items       : [{
-            xtype       : 'list',
+            xtype       : 'dataview',
             cls         : 'blog-list',
             itemTpl     : [
                 '<div class="custom-panel">',

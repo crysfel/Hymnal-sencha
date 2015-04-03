@@ -13,12 +13,15 @@ Ext.define('Hymnal.controller.Blog',{
 
     config  : { 
         refs    : {
-            list : 'blog list',
+            blog : 'blog',
+            list : 'blog dataview',
             view : 'blog post'
         },
         control : {
-            'blog list' : {
-                activate: 'onShowView',
+            'blog' : {
+                show    : 'onShowView'
+            },
+            'blog dataview' : {
                 itemtap : 'showPost'
             }
         }
@@ -29,15 +32,17 @@ Ext.define('Hymnal.controller.Blog',{
 
         me.getView().setData(record.getData());
 
-        me.getList().hide();
-        me.getView().show();
+        me.getBlog().setActiveItem(me.getView());
     },
 
     onShowView  : function(){
+        var me = this;
+console.log('show');
         if(!navigator.onLine){
             Ext.Msg.alert('Sin conexión','Para poder ver el contenido es necesario tener acceso a internet.');
             return;
         }
+        me.getBlog().setActiveItem(me.getList());
     }
     
 });

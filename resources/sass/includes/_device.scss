@@ -18,6 +18,21 @@ body{
             font-size:1.5em;    
         }
     }
+
+    .blog{
+        .x-dataview-container{
+            display: flex;
+            flex-wrap: wrap;
+            
+            .x-dataview-item{
+                width:230px;
+            }
+        }
+
+        .custom-panel .custom-panel-detail .blog-meta{
+            font-size: 12px;
+        }
+    }
 }
 
 .about{

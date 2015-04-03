@@ -91,7 +91,7 @@ Ext.define('Hymnal.controller.Main',{
     showView : function(xtype){
         var card = this.getSlider().down(xtype);
 
-        if(card){console.log(card);
+        if(card){
             this.getSlider().setActiveItem(card);
         }
     }

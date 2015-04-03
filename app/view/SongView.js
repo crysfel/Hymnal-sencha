@@ -26,17 +26,7 @@ Ext.define('Hymnal.view.SongView',{
 			direction     : 'vertical',
 			directionLock : true
 		},
-		tpl   : new Ext.XTemplate(
-            '<tpl if="!this.isPhone()">',
-                '<div class="icon-left-open image-font"></div>',
-                '<div class="icon-right-open image-font"></div>',
-            '</tpl>',
-            '<div class="custom-panel"><h3>{title}</h3><p>{content}</p></div>'
-        ,{
-            isPhone : function(){
-                return Ext.os.is('Phone');
-            }
-        }),
+		tpl   : new Ext.XTemplate('<div class="custom-panel"><h3>{title}</h3><p>{content}</p></div>'),
         items : []
     },
 

@@ -17,12 +17,12 @@ Ext.define('Hymnal.view.Configurations',{
     ],
 
     config		: {
+        layout      : 'fit',
         toolbar     : [
             {title:'Configuraciones'}
         ],
 		items	: [{
             xtype : 'container',
-            // layout: 'auto',
             cls   : 'configurations',
             scrollable : 'vertical',
             items : [{

@@ -3,21 +3,12 @@ body{
 }
 .tablet-styles{
 	.hymn-view{
-
         .custom-panel{
-            margin: 50px 190px;
-        }
+            padding: 30px 45px;
 
-        .image-font{
-            font-size: 4em;
-            margin: 200px 25px 0 25px;
-            opacity: 0.7;
-        }
-        .icon-left-open{
-            float: left;
-        }
-        .icon-right-open{
-            float: right;
+            h3{
+                margin: 10px 0 20px 0;
+            }
         }
 	}
 

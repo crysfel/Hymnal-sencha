@@ -25,16 +25,19 @@
 }
 
 .theme-dark{
-    .x-slidenavigation-list{
+    .x-slidenavigation-list,
+    .main-menu-container{
         background-color:$dark-sidebar-bg-color;
     }
 }
 
 .theme-orange{
-    .x-slidenavigation-list{
+    .x-slidenavigation-list,
+    .main-menu-container{
         background-color:$orange-sidebar-bg-color;
 
-        .x-list-item.x-item-selected.x-list-item-tpl{
+        .x-list-item.x-item-selected.x-list-item-tpl,
+        .menu-item.active-item{
             color:$orange-sidebar-bg-selection-color;
         }
     }

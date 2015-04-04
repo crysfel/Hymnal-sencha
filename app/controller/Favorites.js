@@ -13,7 +13,8 @@ Ext.define('Hymnal.controller.Favorites', {
             view : 'songview',
             list : 'songlist list',
             favs : 'favorites',
-            player  : 'player'
+            player  : 'player',
+            menu    : 'main main-menu'
         },
         control : {
             'songview' : {
@@ -51,7 +52,11 @@ Ext.define('Hymnal.controller.Favorites', {
     showSong : function(id){
         var model = this.getList().getStore().getById(id);
 
-        this.getHome().list.select(1);
+        if(Ext.os.is('Phone')){
+            this.getHome().list.select(1);
+        }else{
+            this.getMenu().select('songview');
+        }
         this.getView().setSong(model);
     },
 

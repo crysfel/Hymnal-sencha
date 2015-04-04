@@ -85,11 +85,11 @@ Ext.define('Hymnal.controller.Songs', {
                 this.getView().setSong(model);
             }
         }else{
-            // if(Ext.os.is('Phone')){
-                // this.getHome().list.select(1); //need to find a better way to select a different view 
-            // }else{
+            if(Ext.os.is('Phone')){
+                this.getHome().list.select(1); //need to find a better way to select a different view 
+            }else{
                 this.getMenu().select('songview');
-            // }
+            }
             this.getView().setSong(model);
         }
 

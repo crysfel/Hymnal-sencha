@@ -1,8 +1,26 @@
-.x-msgbox-dark{
+.x-msgbox-dark,
+.x-panel.x-select-overlay{
     background-color: $blue;
     border: none;
     @include border-radius(5px);
     color: #fff;
+
+    .x-panel-inner{
+        // background-color: $blue;
+    }
+
+    .x-list .x-list-item{
+        color: #777;
+
+        .x-list-label{
+            margin-top: 10px;
+        }
+    }
+
+    .x-list .x-list-item.x-item-selected.x-list-item-tpl{
+        background-color: $green;
+        color:#fff;
+    }
 
     .x-msgbox-title{
         margin-bottom: 15px;
@@ -23,8 +41,22 @@
 }
 
 .theme-dark{
-    .x-msgbox-dark{
-        background-color: $dark-card-bg-color;
+    .x-msgbox-dark,
+    .x-panel.x-select-overlay{
+        background-color: $dark-view-bg-color;
+
+        .x-panel-inner{
+            background-color: $dark-card-bg-color;
+        }
+
+        .x-list .x-list-item{
+            color: #fff;
+
+            .x-list-label{
+                margin-top: 10px;
+            }
+        }
+
         .x-toolbar-dark{
             background-color: $dark-card-bg-color;
         }
@@ -32,9 +64,14 @@
 }
 
 .theme-orange{
-    .x-msgbox-dark{
-        background-color: $orange-toolbar-bg-color;
+    .x-msgbox-dark,
+    .x-panel.x-select-overlay{
+        background-color: $orange-view-bg-color;
 
+        .x-list .x-list-item.x-item-selected.x-list-item-tpl{
+            background-color:$orange-player-bg-color;
+            color:#fff;
+        }
         .x-button{
             background-color:$orange-player-bg-color;
         }

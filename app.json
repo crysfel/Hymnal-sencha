@@ -106,7 +106,8 @@
         "resources/images",
         "resources/fonts",
         "resources/icons",
-        "resources/startup"
+        "resources/startup",
+        "data/hymns.json"
     ],
 
     /**

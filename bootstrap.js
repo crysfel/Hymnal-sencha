@@ -753,23 +753,33 @@ Ext.ClassManager.addNameAlternateMappings({
     "Ext.viewport.WP"
   ],
   "Hymnal.Config": [],
+  "Hymnal.controller.Blog": [],
   "Hymnal.controller.Config": [],
   "Hymnal.controller.Favorites": [],
   "Hymnal.controller.Main": [],
   "Hymnal.controller.Songs": [],
   "Hymnal.model.Category": [],
+  "Hymnal.model.Post": [],
   "Hymnal.model.Song": [],
+  "Hymnal.overrides.Ajax": [],
+  "Hymnal.profile.Phone": [],
+  "Hymnal.profile.Tablet": [],
   "Hymnal.store.Categories": [],
   "Hymnal.store.Favorites": [],
+  "Hymnal.store.Posts": [],
   "Hymnal.store.Songs": [],
+  "Hymnal.view.Blog": [],
   "Hymnal.view.Card": [],
   "Hymnal.view.Categories": [],
   "Hymnal.view.Configurations": [],
   "Hymnal.view.Favorites": [],
-  "Hymnal.view.Main": [],
   "Hymnal.view.Player": [],
+  "Hymnal.view.Post": [],
   "Hymnal.view.SongList": [],
-  "Hymnal.view.SongView": []
+  "Hymnal.view.SongView": [],
+  "Hymnal.view.phone.Main": [],
+  "Hymnal.view.tablet.Main": [],
+  "Hymnal.view.tablet.Menu": []
 });
 Ext.ClassManager.addNameAliasMappings({
   "Ext.AbstractComponent": [],
@@ -1717,18 +1727,29 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.viewport.Viewport": [],
   "Ext.viewport.WindowsPhone": [],
   "Hymnal.Config": [],
+  "Hymnal.controller.Blog": [],
   "Hymnal.controller.Config": [],
   "Hymnal.controller.Favorites": [],
   "Hymnal.controller.Main": [],
   "Hymnal.controller.Songs": [],
   "Hymnal.model.Category": [],
+  "Hymnal.model.Post": [],
   "Hymnal.model.Song": [],
+  "Hymnal.overrides.Ajax": [],
+  "Hymnal.profile.Phone": [],
+  "Hymnal.profile.Tablet": [],
   "Hymnal.store.Categories": [
     "store.categories"
   ],
   "Hymnal.store.Favorites": [],
+  "Hymnal.store.Posts": [
+    "store.posts"
+  ],
   "Hymnal.store.Songs": [
     "store.songs"
+  ],
+  "Hymnal.view.Blog": [
+    "widget.blog"
   ],
   "Hymnal.view.Card": [],
   "Hymnal.view.Categories": [
@@ -1740,16 +1761,25 @@ Ext.ClassManager.addNameAliasMappings({
   "Hymnal.view.Favorites": [
     "widget.favorites"
   ],
-  "Hymnal.view.Main": [
-    "widget.main"
-  ],
   "Hymnal.view.Player": [
     "widget.player"
+  ],
+  "Hymnal.view.Post": [
+    "widget.post"
   ],
   "Hymnal.view.SongList": [
     "widget.songlist"
   ],
   "Hymnal.view.SongView": [
     "widget.songview"
+  ],
+  "Hymnal.view.phone.Main": [
+    "widget.main"
+  ],
+  "Hymnal.view.tablet.Main": [
+    "widget.main"
+  ],
+  "Hymnal.view.tablet.Menu": [
+    "widget.main-menu"
   ]
 });

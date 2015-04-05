@@ -107,7 +107,8 @@
         "resources/fonts",
         "resources/icons",
         "resources/startup",
-        "data/hymns.json"
+        "data/hymns.json",
+        "config.xml"
     ],
 
     /**

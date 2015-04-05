@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns   = "http://www.w3.org/ns/widgets"
+        xmlns:gap   = "http://phonegap.com/ns/1.0"
+        id          = "com.bleext.hymnal"
+        versionCode = "2.2.0" 
+        version     = "2.2.0" >
+
+    <!-- versionCode is optional and Android only -->
+
+    <name>Himnario</name>
+
+    <description>
+        Himnario Adventista del Séptimo Día
+    </description>
+
+    <author href="http://bleext.com" email="support@bleext.com">
+        Crysfel Villa 
+    </author>
+
+    <gap:platform name="ios" />
+
+    <preference name="phonegap-version" value="3.7.0" />
+    <preference name="fullscreen" value="true" />
+    <preference name="target-device" value="universal" />
+    <preference name="orientation" value="portrait" />
+
+    <!-- IOS 7.0+ -->
+    <!-- iPhone 6 / 6+ -->
+    <icon src="resources/icons/icon-60@3x.png" gap:platform="ios" width="180" height="180" />
+
+    <!-- iPhone / iPod Touch  -->
+    <icon src="resources/icons/icon-60.png" gap:platform="ios" width="60" height="60" />
+    <icon src="resources/icons/icon-60@2x.png" gap:platform="ios" width="120" height="120" />
+
+    <!-- iPad -->
+    <icon src="resources/icons/icon-76.png" gap:platform="ios" width="76" height="76" />
+    <icon src="resources/icons/icon-76@2x.png" gap:platform="ios" width="152" height="152" />
+
+    <!-- Settings Icon -->
+    <icon src="resources/icons/icon-small.png" gap:platform="ios" width="29" height="29" />
+    <icon src="resources/icons/icon-small@2x.png" gap:platform="ios" width="58" height="58" />
+
+    <!-- Spotlight Icon -->
+    <icon src="resources/icons/icon-40.png" gap:platform="ios" width="40" height="40" />
+    <icon src="resources/icons/icon-40@2x.png" gap:platform="ios" width="80" height="80" />
+
+
+
+
+
+    <!-- IOS 6.1 -->
+    <!-- iPhone / iPod Touch -->
+    <icon src="resources/icons/icon.png" gap:platform="ios" width="57" height="57" />
+    <icon src="resources/icons/icon@2x.png" gap:platform="ios" width="114" height="114" />
+
+    <!-- iPad -->
+    <icon src="resources/icons/icon-72.png" gap:platform="ios" width="72" height="72" />
+    <icon src="resources/icons/icon-72@2x.png" gap:platform="ios" width="144" height="144" />
+
+    <!-- iPhone Spotlight and Settings Icon -->
+    <icon src="resources/icons/icon-small.png" gap:platform="ios" width="29" height="29" />
+    <icon src="resources/icons/icon-small@2x.png" gap:platform="ios" width="58" height="58" />
+
+    <!-- iPad Spotlight and Settings Icon -->
+    <icon src="resources/icons/icon-50.png" gap:platform="ios" width="50" height="50" />
+    <icon src="resources/icons/icon-50@2x.png" gap:platform="ios" width="100" height="100" />
+
+
+
+
+    <!-- iPhone and iPod touch -->
+    <gap:splash src="resources/startup/Default.png" gap:platform="ios" width="320" height="480" />
+    <gap:splash src="resources/startup/Default@2x.png" gap:platform="ios" width="640" height="960" />
+
+    <!-- iPhone 5 / iPod Touch (5th Generation) -->
+    <gap:splash src="resources/startup/Default-568h@2x.png" gap:platform="ios" width="640" height="1136" />
+
+    <!-- iPhone 6 -->
+    <gap:splash src="resources/startup/Default-667h@2x.png" gap:platform="ios" width="750" height="1334" />
+    <gap:splash src="resources/startup/Default-Portrait-736h@3x.png" gap:platform="ios" width="1242" height="2208" />
+    <gap:splash src="resources/startup/Default-Landscape-736h@3x.png" gap:platform="ios" width="2208" height="1242" />
+
+    <!-- iPad -->
+    <gap:splash src="resources/startup/Default-Portrait.png" gap:platform="ios" width="768" height="1024" />
+    <gap:splash src="resources/startup/Default-Landscape.png" gap:platform="ios" width="1024" height="768" />
+
+    <!-- Retina iPad -->
+    <gap:splash src="resources/startup/Default-Portrait@2x.png" gap:platform="ios" width="1536" height="2048" />
+    <gap:splash src="resources/startup/Default-Landscape@2x.png" gap:platform="ios" width="2048" height="1536" />
+
+</widget>
